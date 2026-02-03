@@ -1,4 +1,5 @@
 import FadeSection from '@/components/FadeSection';
+import ContactForm from '@/components/ContactForm';
 
 export default function Home() {
   return (
@@ -15,12 +16,10 @@ export default function Home() {
             </p>
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
               <a
-                href="https://wa.me/56912345678?text=Hola%20Gustavo,%20quiero%20cotizar%20mi%20Isapre"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="#contacto"
                 className="cta-primary bg-mint hover:bg-mint-dark text-primary font-semibold py-4 px-8 rounded-full text-center text-base sm:text-lg transition touch-manipulation active:scale-[0.98]"
               >
-                Cotizar por WhatsApp
+                Cotizar gratis
               </a>
               <a
                 href="#como-funciona"
@@ -143,44 +142,69 @@ export default function Home() {
       </section>
 
       {/* COMPARACIÓN */}
-      <section className="py-14 sm:py-24 bg-white">
+      <section className="py-14 sm:py-24 bg-primary">
         <div className="max-w-6xl mx-auto px-5 sm:px-6">
           <FadeSection>
-            <h2 className="text-2xl sm:text-4xl font-bold text-center mb-8 sm:mb-12">La diferencia</h2>
+            <h2 className="text-2xl sm:text-4xl font-bold text-center mb-3 sm:mb-4 text-white">La diferencia</h2>
+            <p className="text-white/60 text-center mb-10 sm:mb-12 text-sm sm:text-base">Lo que pasa cuando eliges solo vs con asesoría</p>
           </FadeSection>
           
           <FadeSection delay={100}>
-            <div className="max-w-3xl mx-auto -mx-5 sm:mx-auto px-5 sm:px-0 overflow-x-auto">
-              <table className="w-full min-w-[320px]">
-                <thead>
-                  <tr className="border-b-2 border-gray-light">
-                    <th className="py-3 sm:py-4 pr-2 sm:px-4 text-left font-semibold text-xs sm:text-base"></th>
-                    <th className="py-3 sm:py-4 px-2 sm:px-4 text-center font-semibold text-gray-medium text-xs sm:text-base">Solo</th>
-                    <th className="py-3 sm:py-4 pl-2 sm:px-4 text-center font-semibold text-mint text-xs sm:text-base">Con Isapre360</th>
-                  </tr>
-                </thead>
-                <tbody className="text-xs sm:text-base">
+            <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-4 sm:gap-6">
+              {/* Columna SOLO */}
+              <div className="bg-white/5 backdrop-blur border border-white/10 rounded-2xl p-5 sm:p-6">
+                <div className="flex items-center gap-2 mb-5 sm:mb-6">
+                  <span className="text-xl">😓</span>
+                  <h3 className="text-white/60 font-semibold text-sm sm:text-base">Eligiendo solo</h3>
+                </div>
+                <ul className="space-y-3 sm:space-y-4">
                   {[
-                    ['Comparar planes', 'Horas buscando', '15 minutos'],
-                    ['Entender coberturas', 'Letra chica', 'Explicación clara'],
-                    ['Elegir Isapre', 'Presión de vendedores', 'Recomendación objetiva'],
-                    ['Hacer el cambio', 'Solo y con dudas', 'Acompañamiento total'],
-                  ].map(([label, solo, con360], i) => (
-                    <tr key={i} className="border-b border-gray-light">
-                      <td className="py-3 sm:py-4 pr-2 sm:px-4 font-medium">{label}</td>
-                      <td className="py-3 sm:py-4 px-2 sm:px-4 text-center text-gray-medium">{solo}</td>
-                      <td className="py-3 sm:py-4 pl-2 sm:px-4 text-center text-mint font-medium">{con360}</td>
-                    </tr>
+                    'Horas comparando en internet',
+                    'Letra chica que no entiendes',
+                    'Vendedores que te presionan',
+                    'Dudas sin resolver',
+                  ].map((item, i) => (
+                    <li key={i} className="flex items-start gap-3 text-white/50 text-sm sm:text-base">
+                      <span className="text-red-400 mt-0.5">✕</span>
+                      {item}
+                    </li>
                   ))}
-                </tbody>
-              </table>
+                </ul>
+              </div>
+
+              {/* Columna CON ISAPRE360 */}
+              <div className="bg-white rounded-2xl p-5 sm:p-6 shadow-xl">
+                <div className="flex items-center gap-2 mb-5 sm:mb-6">
+                  <span className="text-xl">🎯</span>
+                  <h3 className="text-primary font-semibold text-sm sm:text-base">Con Isapre360</h3>
+                </div>
+                <ul className="space-y-3 sm:space-y-4">
+                  {[
+                    'Cotización en 15 minutos',
+                    'Todo explicado en simple',
+                    'Recomendación objetiva',
+                    'Acompañamiento completo',
+                  ].map((item, i) => (
+                    <li key={i} className="flex items-start gap-3 text-gray-medium text-sm sm:text-base">
+                      <span className="text-mint mt-0.5">✓</span>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+                <a
+                  href="#contacto"
+                  className="mt-6 block w-full bg-mint hover:bg-mint-dark text-primary font-semibold py-3 sm:py-4 px-6 rounded-full text-center text-sm sm:text-base transition touch-manipulation active:scale-[0.98]"
+                >
+                  Cotizar ahora
+                </a>
+              </div>
             </div>
           </FadeSection>
         </div>
       </section>
 
       {/* TESTIMONIOS */}
-      <section className="py-14 sm:py-24 bg-gray-light">
+      <section className="py-14 sm:py-24 bg-white">
         <div className="max-w-6xl mx-auto px-5 sm:px-6">
           <FadeSection>
             <h2 className="text-2xl sm:text-4xl font-bold text-center mb-8 sm:mb-12">Lo que dicen mis clientes</h2>
@@ -193,7 +217,7 @@ export default function Home() {
               { name: 'Francisca L.', age: '29 años', text: 'Venía de Fonasa y no entendía nada. Ahora tengo un plan que se ajusta a lo que necesito.' },
             ].map((item, i) => (
               <FadeSection key={i} delay={i * 100}>
-                <div className="card-hover bg-white rounded-2xl p-5 sm:p-6">
+                <div className="card-hover bg-gray-light rounded-2xl p-5 sm:p-6">
                   <p className="text-gray-medium text-sm sm:text-base mb-4 italic leading-relaxed">"{item.text}"</p>
                   <div>
                     <p className="font-semibold text-sm sm:text-base">{item.name}</p>
@@ -206,23 +230,60 @@ export default function Home() {
         </div>
       </section>
 
+      {/* FORMULARIO DE CONTACTO */}
+      <section id="contacto" className="py-14 sm:py-24 bg-gray-light">
+        <div className="max-w-6xl mx-auto px-5 sm:px-6">
+          <div className="max-w-4xl mx-auto">
+            <div className="grid md:grid-cols-2 gap-8 sm:gap-12 items-start">
+              <FadeSection>
+                <div>
+                  <h2 className="text-2xl sm:text-4xl font-bold mb-4 sm:mb-6">
+                    Cotiza gratis en <span className="text-mint">15 minutos</span>
+                  </h2>
+                  <p className="text-gray-medium text-base sm:text-lg mb-6 sm:mb-8 leading-relaxed">
+                    Déjame tus datos y te contacto para ayudarte a encontrar el mejor plan de Isapre según tu situación.
+                  </p>
+                  
+                  <div className="space-y-4 hidden sm:block">
+                    {[
+                      { icon: '⚡', text: 'Respuesta en menos de 24 horas' },
+                      { icon: '💬', text: 'Te contacto por WhatsApp' },
+                      { icon: '🎯', text: 'Asesoría personalizada y gratuita' },
+                    ].map((item, i) => (
+                      <div key={i} className="flex items-center gap-3">
+                        <span className="text-xl">{item.icon}</span>
+                        <span className="text-gray-medium">{item.text}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </FadeSection>
+
+              <FadeSection delay={100}>
+                <div className="bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-8 shadow-xl">
+                  <ContactForm />
+                </div>
+              </FadeSection>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* CTA FINAL */}
       <section className="py-14 sm:py-24 bg-primary text-white">
         <div className="max-w-3xl mx-auto px-5 sm:px-6 text-center">
           <FadeSection>
             <h2 className="text-2xl sm:text-4xl font-bold mb-3 sm:mb-4 leading-tight">
-              Cotiza tu Isapre con Gustavo en 15 minutos
+              ¿Listo para encontrar tu Isapre ideal?
             </h2>
             <p className="text-white/70 text-base sm:text-lg mb-6 sm:mb-8">
-              Sin compromiso, sin presiones, sin letra chica
+              Completa el formulario y Gustavo te contactará en menos de 24 horas
             </p>
             <a
-              href="https://wa.me/56912345678?text=Hola%20Gustavo,%20quiero%20cotizar%20mi%20Isapre"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="#contacto"
               className="cta-primary inline-block bg-mint hover:bg-mint-dark text-primary font-semibold py-4 px-8 sm:px-10 rounded-full text-base sm:text-lg transition touch-manipulation active:scale-[0.98]"
             >
-              Hablar por WhatsApp
+              Cotizar gratis
             </a>
           </FadeSection>
         </div>

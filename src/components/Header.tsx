@@ -47,9 +47,7 @@ export default function Header() {
               Sobre Gustavo
             </button>
             <a
-              href="https://wa.me/56912345678?text=Hola%20Gustavo,%20quiero%20cotizar%20mi%20Isapre"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="#contacto"
               className="bg-mint hover:bg-mint-dark text-primary font-semibold py-2.5 px-5 rounded-full text-sm transition touch-manipulation"
             >
               Cotizar ahora
@@ -80,14 +78,16 @@ export default function Header() {
               <button onClick={() => scrollTo('gustavo')} className="w-full text-left py-4 px-4 text-base text-primary hover:bg-gray-light rounded-xl touch-manipulation active:bg-gray-light">
                 Sobre Gustavo
               </button>
+              <button onClick={() => scrollTo('contacto')} className="w-full text-left py-4 px-4 text-base text-primary hover:bg-gray-light rounded-xl touch-manipulation active:bg-gray-light">
+                Contacto
+              </button>
               <div className="pt-4">
                 <a
-                  href="https://wa.me/56912345678?text=Hola%20Gustavo,%20quiero%20cotizar%20mi%20Isapre"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href="#contacto"
+                  onClick={() => setIsMenuOpen(false)}
                   className="block bg-mint text-primary font-semibold py-4 px-6 rounded-full text-center text-base touch-manipulation active:bg-mint-dark"
                 >
-                  Cotizar por WhatsApp
+                  Cotizar gratis
                 </a>
               </div>
             </div>
