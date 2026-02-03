@@ -4,8 +4,15 @@ import { useState, useEffect } from 'react';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
-  // Close menu on resize to desktop
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 20);
+    handleScroll(); // Check initial state
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth >= 768) setIsMenuOpen(false);
@@ -14,7 +21,6 @@ export default function Header() {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  // Prevent body scroll when menu is open
   useEffect(() => {
     document.body.style.overflow = isMenuOpen ? 'hidden' : '';
     return () => { document.body.style.overflow = ''; };
@@ -26,37 +32,36 @@ export default function Header() {
   };
 
   return (
-    <header className="bg-white shadow-sm sticky top-0 z-50">
-      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" aria-label="Navegación principal">
+    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled || isMenuOpen ? 'bg-white shadow-sm' : 'bg-white/80 backdrop-blur-md'}`}>
+      <nav className="max-w-6xl mx-auto px-5 sm:px-6" aria-label="Navegación principal">
         <div className="flex justify-between h-16 items-center">
-          <button onClick={() => scrollTo('inicio')} className="text-xl sm:text-2xl font-bold text-primary">
-            Isapre360
+          <button onClick={() => scrollTo('inicio')} className="text-xl font-bold text-primary touch-manipulation">
+            Isapre<span className="text-mint">360</span>
           </button>
 
-          {/* Desktop Menu */}
-          <div className="hidden md:flex space-x-8">
-            <button onClick={() => scrollTo('inicio')} className="text-gray-700 hover:text-primary transition py-2">
-              Inicio
+          <div className="hidden md:flex items-center space-x-8">
+            <button onClick={() => scrollTo('como-funciona')} className="text-gray-medium hover:text-primary transition text-sm font-medium">
+              Cómo funciona
             </button>
-            <button onClick={() => scrollTo('servicios')} className="text-gray-700 hover:text-primary transition py-2">
-              Servicios
+            <button onClick={() => scrollTo('gustavo')} className="text-gray-medium hover:text-primary transition text-sm font-medium">
+              Sobre Gustavo
             </button>
-            <button onClick={() => scrollTo('nosotros')} className="text-gray-700 hover:text-primary transition py-2">
-              Nosotros
-            </button>
-            <button onClick={() => scrollTo('contacto')} className="text-gray-700 hover:text-primary transition py-2">
-              Contacto
-            </button>
+            <a
+              href="https://wa.me/56912345678?text=Hola%20Gustavo,%20quiero%20cotizar%20mi%20Isapre"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-mint hover:bg-mint-dark text-primary font-semibold py-2.5 px-5 rounded-full text-sm transition touch-manipulation"
+            >
+              Cotizar ahora
+            </a>
           </div>
 
-          {/* Mobile Menu Button */}
           <button
-            className="md:hidden p-3 -mr-3 touch-manipulation"
+            className="md:hidden p-2 -mr-2 touch-manipulation"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-label={isMenuOpen ? 'Cerrar menú' : 'Abrir menú'}
-            aria-expanded={isMenuOpen}
           >
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               {isMenuOpen ? (
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
               ) : (
@@ -66,22 +71,25 @@ export default function Header() {
           </button>
         </div>
 
-        {/* Mobile Menu Overlay */}
         {isMenuOpen && (
-          <div className="md:hidden fixed inset-0 top-16 bg-white z-40">
-            <div className="flex flex-col p-4 space-y-2">
-              <button onClick={() => scrollTo('inicio')} className="w-full text-left py-4 px-4 text-lg text-gray-700 hover:bg-gray-50 rounded-lg touch-manipulation">
-                Inicio
+          <div className="md:hidden fixed inset-x-0 top-16 bottom-0 bg-white z-40 overflow-y-auto">
+            <div className="flex flex-col p-5 space-y-1">
+              <button onClick={() => scrollTo('como-funciona')} className="w-full text-left py-4 px-4 text-base text-primary hover:bg-gray-light rounded-xl touch-manipulation active:bg-gray-light">
+                Cómo funciona
               </button>
-              <button onClick={() => scrollTo('servicios')} className="w-full text-left py-4 px-4 text-lg text-gray-700 hover:bg-gray-50 rounded-lg touch-manipulation">
-                Servicios
+              <button onClick={() => scrollTo('gustavo')} className="w-full text-left py-4 px-4 text-base text-primary hover:bg-gray-light rounded-xl touch-manipulation active:bg-gray-light">
+                Sobre Gustavo
               </button>
-              <button onClick={() => scrollTo('nosotros')} className="w-full text-left py-4 px-4 text-lg text-gray-700 hover:bg-gray-50 rounded-lg touch-manipulation">
-                Nosotros
-              </button>
-              <button onClick={() => scrollTo('contacto')} className="w-full text-left py-4 px-4 text-lg text-gray-700 hover:bg-gray-50 rounded-lg touch-manipulation">
-                Contacto
-              </button>
+              <div className="pt-4">
+                <a
+                  href="https://wa.me/56912345678?text=Hola%20Gustavo,%20quiero%20cotizar%20mi%20Isapre"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block bg-mint text-primary font-semibold py-4 px-6 rounded-full text-center text-base touch-manipulation active:bg-mint-dark"
+                >
+                  Cotizar por WhatsApp
+                </a>
+              </div>
             </div>
           </div>
         )}

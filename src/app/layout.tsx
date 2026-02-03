@@ -7,38 +7,39 @@ import WhatsAppButton from '@/components/WhatsAppButton';
 export const metadata: Metadata = {
   metadataBase: new URL('https://isapre360.cl'),
   title: {
-    default: 'Isapre360 | Asesoría en Planes de Salud en Chile',
+    default: 'Isapre360 | Elige tu Isapre sin perderte en la letra chica',
     template: '%s | Isapre360',
   },
   description:
-    'Asesoría profesional en planes de Isapre en Chile. Te ayudamos a elegir el mejor plan de salud para ti y tu familia. Comparamos todas las Isapres del mercado.',
+    'Gustavo, profesional de la salud, te ayuda a cotizar, comparar y elegir el mejor plan de Isapre para ti y tu familia. Asesoría personalizada sin compromiso.',
   keywords: [
     'isapre',
     'isapre360',
     'asesor isapre',
-    'planes de salud chile',
+    'cotizar isapre',
     'comparar isapres',
-    'asesoría isapre',
-    'salud chile',
+    'cambiar isapre',
+    'planes de salud chile',
     'fonasa vs isapre',
     'mejor isapre chile',
+    'asesoría isapre gratis',
   ],
-  authors: [{ name: 'Isapre360' }],
+  authors: [{ name: 'Isapre360 - Gustavo' }],
   creator: 'Isapre360',
   openGraph: {
     type: 'website',
     locale: 'es_CL',
     url: 'https://isapre360.cl',
     siteName: 'Isapre360',
-    title: 'Isapre360 | Asesoría en Planes de Salud en Chile',
+    title: 'Isapre360 | Elige tu Isapre sin perderte en la letra chica',
     description:
-      'Asesoría profesional en planes de Isapre en Chile. Te ayudamos a elegir el mejor plan de salud.',
-    images: [{ url: '/og-image.jpg', width: 1200, height: 630, alt: 'Isapre360' }],
+      'Gustavo te ayuda a cotizar, comparar y elegir el mejor plan de Isapre. Asesoría personalizada sin compromiso.',
+    images: [{ url: '/og-image.jpg', width: 1200, height: 630, alt: 'Isapre360 - Asesoría en Isapres' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Isapre360 | Asesoría en Planes de Salud',
-    description: 'Asesoría profesional en planes de Isapre en Chile.',
+    title: 'Isapre360 | Elige tu Isapre sin letra chica',
+    description: 'Asesoría personalizada para elegir tu plan de Isapre en Chile.',
   },
   robots: {
     index: true,
@@ -52,9 +53,9 @@ export const metadata: Metadata = {
 
 const jsonLd = {
   '@context': 'https://schema.org',
-  '@type': 'LocalBusiness',
+  '@type': 'ProfessionalService',
   name: 'Isapre360',
-  description: 'Asesoría profesional en planes de Isapre en Chile',
+  description: 'Asesoría personalizada en planes de Isapre en Chile. Gustavo, profesional de la salud, te ayuda a cotizar, comparar y elegir el mejor plan.',
   url: 'https://isapre360.cl',
   telephone: '+56912345678',
   address: {
@@ -63,8 +64,12 @@ const jsonLd = {
     addressRegion: 'Región Metropolitana',
     addressCountry: 'CL',
   },
-  areaServed: 'Chile',
-  serviceType: 'Asesoría en Isapres',
+  areaServed: {
+    '@type': 'Country',
+    name: 'Chile',
+  },
+  serviceType: ['Asesoría en Isapres', 'Comparación de planes de salud', 'Cambio de Isapre'],
+  priceRange: 'Gratis',
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -72,12 +77,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="es-CL">
       <head>
         <link rel="canonical" href="https://isapre360.cl" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="min-h-screen flex flex-col bg-white text-gray-900">
+      <body className="min-h-screen flex flex-col bg-white">
         <Header />
         <main className="flex-grow">{children}</main>
         <Footer />

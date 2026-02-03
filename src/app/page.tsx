@@ -1,152 +1,235 @@
+import FadeSection from '@/components/FadeSection';
+
 export default function Home() {
   return (
     <>
-      {/* Hero Section */}
-      <section id="inicio" className="bg-gradient-to-br from-primary to-blue-700 text-white py-12 sm:py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6 leading-tight">
-            Isapre360 - Tu Asesor de Salud en Chile
-          </h1>
-          <p className="text-lg sm:text-xl md:text-2xl mb-6 sm:mb-8 max-w-3xl mx-auto">
-            Te ayudamos a elegir el mejor plan de salud para ti y tu familia. 
-            Comparamos todas las Isapres del mercado sin costo.
-          </p>
-          <a
-            href="#contacto"
-            className="inline-block bg-secondary hover:bg-green-600 text-white font-semibold py-4 px-6 sm:px-8 rounded-lg text-base sm:text-lg transition touch-manipulation active:scale-95"
-          >
-            Solicita Asesoría Gratis
-          </a>
-        </div>
-      </section>
-
-      {/* Services Section */}
-      <section id="servicios" className="py-12 sm:py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl sm:text-3xl font-bold text-center mb-8 sm:mb-12">Nuestros Servicios</h2>
-          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
-            <article className="bg-white p-5 sm:p-6 rounded-xl shadow-md">
-              <div className="text-3xl sm:text-4xl mb-3 sm:mb-4">📊</div>
-              <h3 className="text-lg sm:text-xl font-semibold mb-2 sm:mb-3 text-primary">Comparación de Isapres</h3>
-              <p className="text-gray-600 text-sm sm:text-base">
-                Analizamos Banmédica, Colmena, Cruz Blanca, Consalud, Vida Tres y más para encontrar tu plan ideal.
-              </p>
-            </article>
-            <article className="bg-white p-5 sm:p-6 rounded-xl shadow-md">
-              <div className="text-3xl sm:text-4xl mb-3 sm:mb-4">🔄</div>
-              <h3 className="text-lg sm:text-xl font-semibold mb-2 sm:mb-3 text-primary">Cambio de Isapre</h3>
-              <p className="text-gray-600 text-sm sm:text-base">
-                Te asesoramos en el proceso de cambio, asegurando mejor cobertura y precio.
-              </p>
-            </article>
-            <article className="bg-white p-5 sm:p-6 rounded-xl shadow-md sm:col-span-2 md:col-span-1">
-              <div className="text-3xl sm:text-4xl mb-3 sm:mb-4">👨‍💼</div>
-              <h3 className="text-lg sm:text-xl font-semibold mb-2 sm:mb-3 text-primary">Asesoría Personalizada</h3>
-              <p className="text-gray-600 text-sm sm:text-base">
-                Evaluamos tu situación particular para recomendarte el plan más conveniente.
-              </p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      {/* Why Choose Us */}
-      <section id="nosotros" className="py-12 sm:py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl sm:text-3xl font-bold text-center mb-8 sm:mb-12">¿Por Qué Elegirnos?</h2>
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-            <div className="text-center p-4">
-              <div className="text-3xl sm:text-4xl mb-3 sm:mb-4">✓</div>
-              <h3 className="font-semibold mb-1 sm:mb-2 text-sm sm:text-base">Sin Costo</h3>
-              <p className="text-gray-600 text-xs sm:text-sm">Asesoría completamente gratuita</p>
-            </div>
-            <div className="text-center p-4">
-              <div className="text-3xl sm:text-4xl mb-3 sm:mb-4">🏥</div>
-              <h3 className="font-semibold mb-1 sm:mb-2 text-sm sm:text-base">Todas las Isapres</h3>
-              <p className="text-gray-600 text-xs sm:text-sm">Comparamos todas las opciones</p>
-            </div>
-            <div className="text-center p-4">
-              <div className="text-3xl sm:text-4xl mb-3 sm:mb-4">⭐</div>
-              <h3 className="font-semibold mb-1 sm:mb-2 text-sm sm:text-base">Expertos</h3>
-              <p className="text-gray-600 text-xs sm:text-sm">Años de experiencia</p>
-            </div>
-            <div className="text-center p-4">
-              <div className="text-3xl sm:text-4xl mb-3 sm:mb-4">🤝</div>
-              <h3 className="font-semibold mb-1 sm:mb-2 text-sm sm:text-base">Acompañamiento</h3>
-              <p className="text-gray-600 text-xs sm:text-sm">Te guiamos en todo</p>
+      {/* HERO */}
+      <section id="inicio" className="min-h-[90vh] sm:min-h-screen flex items-center bg-gradient-to-br from-gray-light to-white pt-20 sm:pt-16">
+        <div className="max-w-6xl mx-auto px-5 sm:px-6 py-8 sm:py-20">
+          <div className="max-w-3xl">
+            <h1 className="text-[2rem] leading-[1.15] sm:text-5xl lg:text-6xl font-bold sm:leading-tight mb-5 sm:mb-6">
+              Elige tu Isapre <span className="text-mint">sin perderte</span> en la letra chica
+            </h1>
+            <p className="text-base sm:text-xl text-gray-medium mb-6 sm:mb-8 max-w-2xl leading-relaxed">
+              En Isapre360, Gustavo —profesional de la salud— te ayuda a cotizar, comparar y elegir el mejor plan para ti y tu familia.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+              <a
+                href="https://wa.me/56912345678?text=Hola%20Gustavo,%20quiero%20cotizar%20mi%20Isapre"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="cta-primary bg-mint hover:bg-mint-dark text-primary font-semibold py-4 px-8 rounded-full text-center text-base sm:text-lg transition touch-manipulation active:scale-[0.98]"
+              >
+                Cotizar por WhatsApp
+              </a>
+              <a
+                href="#como-funciona"
+                className="border-2 border-primary/20 hover:border-primary/40 text-primary font-semibold py-4 px-8 rounded-full text-center text-base sm:text-lg transition touch-manipulation"
+              >
+                Ver cómo funciona
+              </a>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Contact Section */}
-      <section id="contacto" className="py-12 sm:py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl sm:text-3xl font-bold text-center mb-8 sm:mb-12">Contáctanos</h2>
-          <div className="grid md:grid-cols-2 gap-8 sm:gap-12 max-w-5xl mx-auto">
-            <div>
-              <form className="space-y-4">
-                <div>
-                  <label htmlFor="nombre" className="block text-sm font-medium text-gray-700 mb-1">Nombre</label>
-                  <input type="text" id="nombre" name="nombre" required
-                    className="w-full px-4 py-3 text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent touch-manipulation" />
+      {/* CÓMO FUNCIONA */}
+      <section id="como-funciona" className="py-14 sm:py-24 bg-white">
+        <div className="max-w-6xl mx-auto px-5 sm:px-6">
+          <FadeSection>
+            <h2 className="text-2xl sm:text-4xl font-bold text-center mb-3 sm:mb-4">Cómo funciona</h2>
+            <p className="text-gray-medium text-center mb-10 sm:mb-12 text-sm sm:text-base">Simple, rápido y sin compromiso</p>
+          </FadeSection>
+          
+          <div className="grid gap-4 sm:grid-cols-3 sm:gap-8">
+            {[
+              { step: '1', title: 'Cuéntame tu situación', desc: 'Me escribes por WhatsApp y me cuentas qué necesitas: presupuesto, cargas, uso del sistema.' },
+              { step: '2', title: 'Te muestro opciones reales', desc: 'Comparo planes de todas las Isapres y te explico las diferencias sin letra chica.' },
+              { step: '3', title: 'Te acompaño en el cambio', desc: 'Si decides cambiarte, te guío en todo el proceso hasta que quedes afiliado.' },
+            ].map((item, i) => (
+              <FadeSection key={i} delay={i * 100}>
+                <div className="card-hover bg-gray-light rounded-2xl p-5 sm:p-8 text-center">
+                  <div className="w-11 h-11 sm:w-12 sm:h-12 bg-mint text-primary font-bold text-lg sm:text-xl rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
+                    {item.step}
+                  </div>
+                  <h3 className="text-base sm:text-lg font-semibold mb-2">{item.title}</h3>
+                  <p className="text-gray-medium text-sm leading-relaxed">{item.desc}</p>
                 </div>
-                <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">Email</label>
-                  <input type="email" id="email" name="email" required
-                    className="w-full px-4 py-3 text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent touch-manipulation" />
-                </div>
-                <div>
-                  <label htmlFor="telefono" className="block text-sm font-medium text-gray-700 mb-1">Teléfono</label>
-                  <input type="tel" id="telefono" name="telefono"
-                    className="w-full px-4 py-3 text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent touch-manipulation" />
-                </div>
-                <div>
-                  <label htmlFor="mensaje" className="block text-sm font-medium text-gray-700 mb-1">Mensaje</label>
-                  <textarea id="mensaje" name="mensaje" rows={3} required
-                    className="w-full px-4 py-3 text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent touch-manipulation"></textarea>
-                </div>
-                <button type="submit"
-                  className="w-full bg-primary hover:bg-blue-700 text-white font-semibold py-4 px-8 rounded-lg transition touch-manipulation active:scale-[0.98]">
-                  Enviar Mensaje
-                </button>
-              </form>
-            </div>
-            <div className="space-y-5 sm:space-y-6">
-              <div className="flex items-start gap-3">
-                <span className="text-2xl">📍</span>
-                <div>
-                  <h3 className="font-semibold">Ubicación</h3>
-                  <p className="text-gray-600">Santiago, Chile</p>
-                </div>
-              </div>
-              <div className="flex items-start gap-3">
-                <span className="text-2xl">📧</span>
-                <div>
-                  <h3 className="font-semibold">Email</h3>
-                  <a href="mailto:contacto@isapre360.cl" className="text-primary hover:underline break-all">
-                    contacto@isapre360.cl
-                  </a>
-                </div>
-              </div>
-              <div className="flex items-start gap-3">
-                <span className="text-2xl">📱</span>
-                <div>
-                  <h3 className="font-semibold">Teléfono</h3>
-                  <a href="tel:+56912345678" className="text-primary hover:underline">+56 9 1234 5678</a>
-                </div>
-              </div>
-              <div className="pt-2 sm:pt-4">
-                <a href="https://wa.me/56912345678?text=Hola,%20necesito%20asesoría%20en%20Isapres"
-                  target="_blank" rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white font-semibold py-3 px-6 rounded-lg transition touch-manipulation active:scale-95">
-                  <span>💬</span> WhatsApp Directo
-                </a>
-              </div>
-            </div>
+              </FadeSection>
+            ))}
           </div>
         </div>
       </section>
+
+      {/* POR QUÉ ISAPRE360 */}
+      <section className="py-14 sm:py-24 bg-gray-light">
+        <div className="max-w-6xl mx-auto px-5 sm:px-6">
+          <FadeSection>
+            <h2 className="text-2xl sm:text-4xl font-bold text-center mb-10 sm:mb-12">¿Por qué Isapre360?</h2>
+          </FadeSection>
+          
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6">
+            {[
+              { icon: '✓', title: 'Sin letra chica', desc: 'Te explico todo en simple' },
+              { icon: '🎯', title: 'Sin empujarte', desc: 'No trabajo para ninguna Isapre' },
+              { icon: '👤', title: '1 a 1', desc: 'Atención personalizada' },
+              { icon: '💡', title: 'Tu uso real', desc: 'Según lo que necesitas' },
+            ].map((item, i) => (
+              <FadeSection key={i} delay={i * 80}>
+                <div className="card-hover bg-white rounded-2xl p-4 sm:p-6 text-center h-full">
+                  <div className="text-2xl sm:text-3xl mb-2 sm:mb-3">{item.icon}</div>
+                  <h3 className="font-semibold text-sm sm:text-base mb-1">{item.title}</h3>
+                  <p className="text-gray-medium text-xs sm:text-sm">{item.desc}</p>
+                </div>
+              </FadeSection>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* SOBRE GUSTAVO */}
+      <section id="gustavo" className="py-14 sm:py-24 bg-white">
+        <div className="max-w-6xl mx-auto px-5 sm:px-6">
+          <div className="grid md:grid-cols-2 gap-6 sm:gap-12 items-center">
+            <FadeSection>
+              <div className="bg-gray-light rounded-2xl sm:rounded-3xl p-6 sm:p-12 flex items-center justify-center">
+                <div className="w-28 h-28 sm:w-40 sm:h-40 bg-mint/20 rounded-full flex items-center justify-center">
+                  <span className="text-5xl sm:text-7xl">👨‍⚕️</span>
+                </div>
+              </div>
+            </FadeSection>
+            <FadeSection delay={100}>
+              <div>
+                <h2 className="text-2xl sm:text-4xl font-bold mb-4 sm:mb-6">Soy Gustavo</h2>
+                <p className="text-gray-medium text-base sm:text-lg leading-relaxed mb-4 sm:mb-6">
+                  Profesional de la salud con años de experiencia en el sistema de Isapres. Mi trabajo es ayudarte a entender y elegir tu plan de forma clara, sin presiones ni ventas engañosas.
+                </p>
+                <p className="text-gray-medium text-sm sm:text-base leading-relaxed">
+                  Te explico las diferencias, los riesgos y lo que realmente importa según tu situación. No trabajo para ninguna Isapre, trabajo para ti.
+                </p>
+              </div>
+            </FadeSection>
+          </div>
+        </div>
+      </section>
+
+      {/* PROBLEMAS QUE RESUELVE */}
+      <section className="py-14 sm:py-24 bg-gray-light">
+        <div className="max-w-6xl mx-auto px-5 sm:px-6">
+          <FadeSection>
+            <h2 className="text-2xl sm:text-4xl font-bold text-center mb-3 sm:mb-4">¿Te suena familiar?</h2>
+            <p className="text-gray-medium text-center mb-8 sm:mb-12 text-sm sm:text-base">Estos son los problemas que resuelvo todos los días</p>
+          </FadeSection>
+          
+          <div className="grid sm:grid-cols-2 gap-3 sm:gap-6 max-w-3xl mx-auto">
+            {[
+              { emoji: '💸', title: 'Pago demasiado', desc: 'Siento que mi plan es muy caro para lo que uso' },
+              { emoji: '😵', title: 'No entiendo mi plan', desc: 'No sé qué cubre ni cuánto me devuelven' },
+              { emoji: '🔄', title: 'Quiero cambiarme', desc: 'Pero no sé por dónde empezar ni qué mirar' },
+              { emoji: '👨‍👩‍👧', title: 'Plan familiar', desc: 'Quiero algo que cubra a todos sin pagar de más' },
+            ].map((item, i) => (
+              <FadeSection key={i} delay={i * 80}>
+                <div className="card-hover bg-white rounded-2xl p-4 sm:p-6 flex gap-3 sm:gap-4 items-start">
+                  <span className="text-2xl sm:text-3xl flex-shrink-0">{item.emoji}</span>
+                  <div>
+                    <h3 className="font-semibold text-sm sm:text-base mb-1">{item.title}</h3>
+                    <p className="text-gray-medium text-xs sm:text-sm leading-relaxed">{item.desc}</p>
+                  </div>
+                </div>
+              </FadeSection>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* COMPARACIÓN */}
+      <section className="py-14 sm:py-24 bg-white">
+        <div className="max-w-6xl mx-auto px-5 sm:px-6">
+          <FadeSection>
+            <h2 className="text-2xl sm:text-4xl font-bold text-center mb-8 sm:mb-12">La diferencia</h2>
+          </FadeSection>
+          
+          <FadeSection delay={100}>
+            <div className="max-w-3xl mx-auto -mx-5 sm:mx-auto px-5 sm:px-0 overflow-x-auto">
+              <table className="w-full min-w-[320px]">
+                <thead>
+                  <tr className="border-b-2 border-gray-light">
+                    <th className="py-3 sm:py-4 pr-2 sm:px-4 text-left font-semibold text-xs sm:text-base"></th>
+                    <th className="py-3 sm:py-4 px-2 sm:px-4 text-center font-semibold text-gray-medium text-xs sm:text-base">Solo</th>
+                    <th className="py-3 sm:py-4 pl-2 sm:px-4 text-center font-semibold text-mint text-xs sm:text-base">Con Isapre360</th>
+                  </tr>
+                </thead>
+                <tbody className="text-xs sm:text-base">
+                  {[
+                    ['Comparar planes', 'Horas buscando', '15 minutos'],
+                    ['Entender coberturas', 'Letra chica', 'Explicación clara'],
+                    ['Elegir Isapre', 'Presión de vendedores', 'Recomendación objetiva'],
+                    ['Hacer el cambio', 'Solo y con dudas', 'Acompañamiento total'],
+                  ].map(([label, solo, con360], i) => (
+                    <tr key={i} className="border-b border-gray-light">
+                      <td className="py-3 sm:py-4 pr-2 sm:px-4 font-medium">{label}</td>
+                      <td className="py-3 sm:py-4 px-2 sm:px-4 text-center text-gray-medium">{solo}</td>
+                      <td className="py-3 sm:py-4 pl-2 sm:px-4 text-center text-mint font-medium">{con360}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </FadeSection>
+        </div>
+      </section>
+
+      {/* TESTIMONIOS */}
+      <section className="py-14 sm:py-24 bg-gray-light">
+        <div className="max-w-6xl mx-auto px-5 sm:px-6">
+          <FadeSection>
+            <h2 className="text-2xl sm:text-4xl font-bold text-center mb-8 sm:mb-12">Lo que dicen mis clientes</h2>
+          </FadeSection>
+          
+          <div className="grid sm:grid-cols-3 gap-3 sm:gap-6">
+            {[
+              { name: 'Carolina M.', age: '34 años', text: 'Bajé mi copago a la mitad y ahora entiendo lo que pago. Gustavo me explicó todo con paciencia.' },
+              { name: 'Roberto S.', age: '45 años', text: 'Me cambié de Isapre sin estrés. Gustavo se encargó de todo el papeleo.' },
+              { name: 'Francisca L.', age: '29 años', text: 'Venía de Fonasa y no entendía nada. Ahora tengo un plan que se ajusta a lo que necesito.' },
+            ].map((item, i) => (
+              <FadeSection key={i} delay={i * 100}>
+                <div className="card-hover bg-white rounded-2xl p-5 sm:p-6">
+                  <p className="text-gray-medium text-sm sm:text-base mb-4 italic leading-relaxed">"{item.text}"</p>
+                  <div>
+                    <p className="font-semibold text-sm sm:text-base">{item.name}</p>
+                    <p className="text-gray-medium text-xs sm:text-sm">{item.age}</p>
+                  </div>
+                </div>
+              </FadeSection>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA FINAL */}
+      <section className="py-14 sm:py-24 bg-primary text-white">
+        <div className="max-w-3xl mx-auto px-5 sm:px-6 text-center">
+          <FadeSection>
+            <h2 className="text-2xl sm:text-4xl font-bold mb-3 sm:mb-4 leading-tight">
+              Cotiza tu Isapre con Gustavo en 15 minutos
+            </h2>
+            <p className="text-white/70 text-base sm:text-lg mb-6 sm:mb-8">
+              Sin compromiso, sin presiones, sin letra chica
+            </p>
+            <a
+              href="https://wa.me/56912345678?text=Hola%20Gustavo,%20quiero%20cotizar%20mi%20Isapre"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="cta-primary inline-block bg-mint hover:bg-mint-dark text-primary font-semibold py-4 px-8 sm:px-10 rounded-full text-base sm:text-lg transition touch-manipulation active:scale-[0.98]"
+            >
+              Hablar por WhatsApp
+            </a>
+          </FadeSection>
+        </div>
+      </section>
+
+      {/* Spacer for WhatsApp button on mobile */}
+      <div className="h-20 sm:h-0 bg-primary"></div>
     </>
   );
 }
