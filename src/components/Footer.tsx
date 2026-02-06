@@ -84,18 +84,10 @@ export default function Footer() {
           </address>
         </div>
 
-        <div className="border-t border-white/10 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
-          <p className="text-white/40 text-xs text-center sm:text-left">
+        <div className="border-t border-white/10 pt-8">
+          <p className="text-white/40 text-xs text-center">
             © {new Date().getFullYear()} Elige un Plan. Todos los derechos reservados.
           </p>
-          <div className="flex items-center gap-3">
-            <img 
-              src="/logos/superintendencia-salud-white.png" 
-              alt="Superintendencia de Salud"
-              className="h-8 w-auto opacity-60"
-              loading="lazy"
-            />
-          </div>
         </div>
       </div>
     </footer>

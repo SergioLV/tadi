@@ -26,7 +26,7 @@ export default function IsapreCarousel() {
                 <img
                   src={isapre.logo}
                   alt={`Logo ${isapre.name}`}
-                  className="max-h-8 sm:max-h-10 w-auto object-contain grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all"
+                  className="max-h-8 sm:max-h-10 w-auto object-contain transition-all hover:scale-110"
                   loading="lazy"
                 />
               </div>
@@ -42,7 +42,7 @@ export default function IsapreCarousel() {
                 <img
                   src={isapre.logo}
                   alt={`Logo ${isapre.name}`}
-                  className="max-h-8 sm:max-h-10 w-auto object-contain grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all"
+                  className="max-h-8 sm:max-h-10 w-auto object-contain transition-all hover:scale-110"
                   loading="lazy"
                 />
               </div>

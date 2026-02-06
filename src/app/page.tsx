@@ -218,11 +218,11 @@ export default function Home() {
             </header>
           </FadeSection>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid sm:grid-cols-2 gap-8 sm:gap-12 max-w-5xl mx-auto">
             {[
               {
                 icon: (
-                  <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                 ),
@@ -232,7 +232,7 @@ export default function Home() {
               },
               {
                 icon: (
-                  <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                 ),
@@ -242,7 +242,7 @@ export default function Home() {
               },
               {
                 icon: (
-                  <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
                   </svg>
                 ),
@@ -252,7 +252,7 @@ export default function Home() {
               },
               {
                 icon: (
-                  <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
                   </svg>
                 ),
@@ -263,12 +263,21 @@ export default function Home() {
             ].map((item, i) => (
               <FadeSection key={i} delay={i * 80}>
                 <article className="group">
-                  <div className={`bg-gradient-to-br ${item.color} backdrop-blur-sm rounded-2xl p-6 h-full text-center transition-all duration-300 hover:scale-105 hover:shadow-soft border border-white/50`}>
-                    <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center mx-auto mb-4 text-accent shadow-sm group-hover:shadow-md transition-shadow">
+                  <div className={`bg-gradient-to-br ${item.color} backdrop-blur-sm rounded-2xl p-6 sm:p-8 transition-all duration-300 hover:scale-105 hover:shadow-soft border border-white/50 ${
+                    i % 2 === 0 ? 'sm:flex sm:flex-row sm:items-center sm:text-left' : 'sm:flex sm:flex-row-reverse sm:items-center sm:text-right'
+                  }`}>
+                    {/* Icon */}
+                    <div className={`w-16 h-16 sm:w-20 sm:h-20 bg-white rounded-2xl flex items-center justify-center text-accent shadow-sm group-hover:shadow-md transition-shadow flex-shrink-0 ${
+                      i % 2 === 0 ? 'mx-auto sm:mx-0 sm:mr-6 mb-4 sm:mb-0' : 'mx-auto sm:mx-0 sm:ml-6 mb-4 sm:mb-0'
+                    }`}>
                       {item.icon}
                     </div>
-                    <h3 className="font-semibold text-text-dark mb-2 text-lg">{item.title}</h3>
-                    <p className="text-text-medium text-sm leading-relaxed">{item.desc}</p>
+                    
+                    {/* Content */}
+                    <div className="text-center sm:text-inherit flex-1">
+                      <h3 className="font-semibold text-text-dark mb-2 text-lg sm:text-xl">{item.title}</h3>
+                      <p className="text-text-medium text-sm sm:text-base leading-relaxed">{item.desc}</p>
+                    </div>
                   </div>
                 </article>
               </FadeSection>
@@ -291,14 +300,14 @@ export default function Home() {
           </FadeSection>
 
           <FadeSection delay={100}>
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 sm:gap-6 mb-12">
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 sm:gap-6">
               {[
                 { name: 'Banmédica', logo: '/logos/banmedica.png' },
                 { name: 'Colmena', logo: '/logos/colmena.png' },
-                { name: 'Cruz Blanca', logo: '/logos/cruzblanca.png' },
+                { name: 'Cruz Blanca', logo: '/logos/cruz_blanca.webp' },
                 { name: 'Consalud', logo: '/logos/consalud.png' },
-                { name: 'Vida Tres', logo: '/logos/vidatres.png' },
-                { name: 'Nueva Masvida', logo: '/logos/nuevamasvida.png' },
+                { name: 'Vida Tres', logo: '/logos/vida_tres.png' },
+                { name: 'Nueva Masvida', logo: '/logos/nueva_mas_vida.png' },
               ].map((isapre) => (
                 <div
                   key={isapre.name}
@@ -307,33 +316,11 @@ export default function Home() {
                   <img 
                     src={isapre.logo} 
                     alt={`Logo ${isapre.name}`}
-                    className="max-h-10 sm:max-h-12 w-auto object-contain grayscale hover:grayscale-0 transition-all"
+                    className="max-h-10 sm:max-h-12 w-auto object-contain transition-all hover:scale-110"
                     loading="lazy"
                   />
                 </div>
               ))}
-            </div>
-          </FadeSection>
-
-          {/* Superintendencia de Salud */}
-          <FadeSection delay={200}>
-            <div className="border-t border-bg-gray pt-10">
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
-                <img 
-                  src="/logos/superintendencia-salud.png" 
-                  alt="Superintendencia de Salud de Chile"
-                  className="h-12 sm:h-16 w-auto object-contain"
-                  loading="lazy"
-                />
-                <div className="text-center sm:text-left">
-                  <p className="text-text-medium text-sm">
-                    Información basada en datos de la
-                  </p>
-                  <p className="text-text-dark font-semibold">
-                    Superintendencia de Salud de Chile
-                  </p>
-                </div>
-              </div>
             </div>
           </FadeSection>
         </div>
