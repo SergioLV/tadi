@@ -92,6 +92,191 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Ejemplo real - Sección de casos de éxito */}
+      <section className="py-12 sm:py-16 bg-gradient-to-br from-accent/5 via-white to-accent/5" aria-labelledby="ejemplo-title">
+        <div className="max-w-7xl mx-auto px-5 sm:px-6">
+          <FadeSection>
+            <div className="text-center mb-10">
+              <p className="text-accent font-semibold mb-2">💡 Casos reales de éxito</p>
+              <h2 id="ejemplo-title" className="text-2xl sm:text-3xl font-bold text-text-dark mb-3">
+                Así ayudamos a personas como tú a ahorrar
+              </h2>
+              <p className="text-text-medium max-w-2xl mx-auto">
+                Miles de chilenos ya están ahorrando con mejores planes de Isapre
+              </p>
+            </div>
+          </FadeSection>
+
+          <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
+            {/* Caso 1: Felipe */}
+            <FadeSection delay={0}>
+              <div className="bg-white rounded-3xl p-6 lg:p-8 shadow-medium border border-accent/10 h-full flex flex-col">
+                <div className="flex flex-col gap-6 flex-1">
+                  {/* Info */}
+                  <div>
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className="w-12 h-12 bg-gradient-to-br from-accent/20 to-accent/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                        <svg className="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                        </svg>
+                      </div>
+                      <div>
+                        <p className="text-text-dark font-bold text-lg">Felipe Rojas</p>
+                        <p className="text-text-medium text-sm">35 años, soltero</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Numbers */}
+                  <div className="bg-gradient-to-br from-accent/10 to-accent/5 rounded-2xl p-5 border border-accent/20 flex-1">
+                    <div className="space-y-3">
+                      <div className="flex justify-between items-center pb-2 border-b border-accent/20">
+                        <span className="text-text-medium text-sm">Pagaba antes:</span>
+                        <span className="text-text-dark font-bold line-through">$95.000</span>
+                      </div>
+                      <div className="flex justify-between items-center pb-2 border-b border-accent/20">
+                        <span className="text-text-medium text-sm">Paga ahora:</span>
+                        <span className="text-accent font-bold text-xl">$65.000</span>
+                      </div>
+                      <div className="flex justify-between items-center pb-2 border-b border-accent/20">
+                        <span className="text-text-medium text-sm">Ahorro mensual:</span>
+                        <span className="text-accent font-bold">$30.000</span>
+                      </div>
+                      <div className="bg-accent/10 rounded-xl p-3 mt-3">
+                        <div className="flex justify-between items-center">
+                          <span className="text-text-dark font-semibold text-sm">Ahorro anual:</span>
+                          <span className="text-accent font-bold text-2xl">$360.000</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Description */}
+                  <p className="text-text-medium text-sm leading-relaxed">
+                    Profesional independiente con mejor cobertura ambulatoria.
+                  </p>
+                </div>
+              </div>
+            </FadeSection>
+
+            {/* Caso 2: Javiera */}
+            <FadeSection delay={100}>
+              <div className="bg-white rounded-3xl p-6 lg:p-8 shadow-medium border border-accent/10 h-full flex flex-col">
+                <div className="flex flex-col gap-6 flex-1">
+                  {/* Info */}
+                  <div>
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className="w-12 h-12 bg-gradient-to-br from-accent/20 to-accent/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                        <svg className="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                        </svg>
+                      </div>
+                      <div>
+                        <p className="text-text-dark font-bold text-lg">Javiera Muñoz</p>
+                        <p className="text-text-medium text-sm">42 años, 2 hijos</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Numbers */}
+                  <div className="bg-gradient-to-br from-accent/10 to-accent/5 rounded-2xl p-5 border border-accent/20 flex-1">
+                    <div className="space-y-3">
+                      <div className="flex justify-between items-center pb-2 border-b border-accent/20">
+                        <span className="text-text-medium text-sm">Pagaba antes:</span>
+                        <span className="text-text-dark font-bold line-through">$180.000</span>
+                      </div>
+                      <div className="flex justify-between items-center pb-2 border-b border-accent/20">
+                        <span className="text-text-medium text-sm">Paga ahora:</span>
+                        <span className="text-accent font-bold text-xl">$120.000</span>
+                      </div>
+                      <div className="flex justify-between items-center pb-2 border-b border-accent/20">
+                        <span className="text-text-medium text-sm">Ahorro mensual:</span>
+                        <span className="text-accent font-bold">$60.000</span>
+                      </div>
+                      <div className="bg-accent/10 rounded-xl p-3 mt-3">
+                        <div className="flex justify-between items-center">
+                          <span className="text-text-dark font-semibold text-sm">Ahorro anual:</span>
+                          <span className="text-accent font-bold text-2xl">$720.000</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Description */}
+                  <p className="text-text-medium text-sm leading-relaxed">
+                    Madre de familia con plan adaptado y excelente cobertura pediátrica.
+                  </p>
+                </div>
+              </div>
+            </FadeSection>
+
+            {/* Caso 3: Constanza */}
+            <FadeSection delay={200}>
+              <div className="bg-white rounded-3xl p-6 lg:p-8 shadow-medium border border-accent/10 h-full flex flex-col">
+                <div className="flex flex-col gap-6 flex-1">
+                  {/* Info */}
+                  <div>
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className="w-12 h-12 bg-gradient-to-br from-accent/20 to-accent/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                        <svg className="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                        </svg>
+                      </div>
+                      <div>
+                        <p className="text-text-dark font-bold text-lg">Constanza Silva</p>
+                        <p className="text-text-medium text-sm">28 años, recién casada</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Numbers */}
+                  <div className="bg-gradient-to-br from-accent/10 to-accent/5 rounded-2xl p-5 border border-accent/20 flex-1">
+                    <div className="space-y-3">
+                      <div className="flex justify-between items-center pb-2 border-b border-accent/20">
+                        <span className="text-text-medium text-sm">Pagaba antes:</span>
+                        <span className="text-text-dark font-bold line-through">$140.000</span>
+                      </div>
+                      <div className="flex justify-between items-center pb-2 border-b border-accent/20">
+                        <span className="text-text-medium text-sm">Paga ahora:</span>
+                        <span className="text-accent font-bold text-xl">$95.000</span>
+                      </div>
+                      <div className="flex justify-between items-center pb-2 border-b border-accent/20">
+                        <span className="text-text-medium text-sm">Ahorro mensual:</span>
+                        <span className="text-accent font-bold">$45.000</span>
+                      </div>
+                      <div className="bg-accent/10 rounded-xl p-3 mt-3">
+                        <div className="flex justify-between items-center">
+                          <span className="text-text-dark font-semibold text-sm">Ahorro anual:</span>
+                          <span className="text-accent font-bold text-2xl">$540.000</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Description */}
+                  <p className="text-text-medium text-sm leading-relaxed">
+                    Pareja joven con plan conjunto y excelente cobertura de maternidad.
+                  </p>
+                </div>
+              </div>
+            </FadeSection>
+          </div>
+
+          {/* CTA */}
+          <FadeSection delay={300}>
+            <div className="mt-10 text-center">
+              <p className="text-text-medium mb-4 text-lg">¿Quieres saber cuánto podrías ahorrar tú?</p>
+              <a
+                href="#formulario"
+                className="btn-primary inline-block bg-accent hover:bg-accent-dark text-white font-semibold py-4 px-10 rounded-full text-lg transition touch-manipulation"
+              >
+                Evaluar mi caso gratis
+              </a>
+            </div>
+          </FadeSection>
+        </div>
+      </section>
+
       {/* Problem Section - Empatía y validación */}
       <section className="py-16 sm:py-24 bg-white" aria-labelledby="problema-title">
         <div className="max-w-6xl mx-auto px-5 sm:px-6">
