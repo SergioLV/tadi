@@ -38,6 +38,7 @@ export default function LeadForm() {
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
   const validateForm = () => {
     const newErrors: Record<string, string> = {};
@@ -64,9 +65,44 @@ export default function LeadForm() {
     }
     
     setIsSubmitting(true);
-    await new Promise(resolve => setTimeout(resolve, 1200));
-    setIsSubmitting(false);
-    setSubmitted(true);
+    setSubmitError(null);
+    
+    // Transform data to English keys for API
+    const apiData = {
+      name: formData.nombre,
+      phone: formData.telefono,
+      age: formData.edad,
+      rut: formData.rut,
+      dependents: formData.cargas,
+      current_isapre: formData.isapre,
+      monthly_income: formData.ingreso,
+      region: formData.region,
+      reason: formData.motivo,
+    };
+    
+    try {
+      const response = await fetch('https://6gbja909qf.execute-api.us-east-1.amazonaws.com/prod/leads', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(apiData),
+      });
+      
+      if (!response.ok) {
+        throw new Error(`Error ${response.status}: ${response.statusText}`);
+      }
+      
+      const result = await response.json();
+      console.log('Lead submitted successfully:', result);
+      
+      setSubmitted(true);
+    } catch (error) {
+      console.error('Error submitting lead:', error);
+      setSubmitError('Hubo un problema al enviar tu solicitud. Por favor intenta nuevamente.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
@@ -297,6 +333,12 @@ export default function LeadForm() {
           'Evaluar mi Isapre gratis'
         )}
       </button>
+
+      {submitError && (
+        <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-xl text-sm">
+          {submitError}
+        </div>
+      )}
 
       <p className="text-center text-xs text-text-light pt-1">
         Sin compromiso. Sin spam. Sin llamadas incómodas.
