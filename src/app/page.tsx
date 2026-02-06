@@ -1,6 +1,7 @@
 import FadeSection from '@/components/FadeSection';
 import LeadForm from '@/components/LeadForm';
 import IsapreCarousel from '@/components/IsapreCarousel';
+import Image from 'next/image';
 
 export default function Home() {
   // Schema para casos de éxito (testimonios)
@@ -323,13 +324,14 @@ export default function Home() {
             {/* Left: Image */}
             <FadeSection delay={100}>
               <div className="relative rounded-2xl overflow-hidden shadow-soft">
-                <img 
+                <Image 
                   src="/images/familia.png" 
                   alt="Personas chilenas de diferentes edades comparando planes de Isapre y ahorrando en salud"
                   className="w-full h-auto object-cover"
-                  loading="lazy"
-                  width="600"
-                  height="400"
+                  width={600}
+                  height={400}
+                  priority={false}
+                  quality={85}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent pointer-events-none" />
               </div>
@@ -530,13 +532,13 @@ export default function Home() {
                   key={isapre.name}
                   className="bg-white rounded-xl p-4 sm:p-6 flex items-center justify-center h-20 sm:h-24 shadow-soft"
                 >
-                  <img 
+                  <Image 
                     src={isapre.logo} 
                     alt={`Comparar planes de ${isapre.name} - Isapre en Chile`}
                     className="max-h-10 sm:max-h-12 w-auto object-contain transition-all hover:scale-110"
-                    loading="lazy"
-                    width="120"
-                    height="48"
+                    width={120}
+                    height={48}
+                    quality={90}
                   />
                 </div>
               ))}

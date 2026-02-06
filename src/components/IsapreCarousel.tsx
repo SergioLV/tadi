@@ -1,5 +1,7 @@
 'use client';
 
+import Image from 'next/image';
+
 const isapres = [
   { name: 'Banmédica', logo: '/logos/banmedica.png' },
   { name: 'Colmena', logo: '/logos/colmena.png' },
@@ -23,11 +25,13 @@ export default function IsapreCarousel() {
                 key={isapre.name}
                 className="flex-shrink-0 bg-white/80 backdrop-blur rounded-xl px-6 py-4 flex items-center justify-center h-16 sm:h-20 w-[140px] sm:w-[160px]"
               >
-                <img
+                <Image
                   src={isapre.logo}
                   alt={`Logo ${isapre.name}`}
                   className="max-h-8 sm:max-h-10 w-auto object-contain transition-all hover:scale-110"
-                  loading="lazy"
+                  width={120}
+                  height={40}
+                  quality={90}
                 />
               </div>
             ))}
@@ -39,11 +43,13 @@ export default function IsapreCarousel() {
                 key={`${isapre.name}-dup`}
                 className="flex-shrink-0 bg-white/80 backdrop-blur rounded-xl px-6 py-4 flex items-center justify-center h-16 sm:h-20 w-[140px] sm:w-[160px]"
               >
-                <img
+                <Image
                   src={isapre.logo}
                   alt={`Logo ${isapre.name}`}
                   className="max-h-8 sm:max-h-10 w-auto object-contain transition-all hover:scale-110"
-                  loading="lazy"
+                  width={120}
+                  height={40}
+                  quality={90}
                 />
               </div>
             ))}
