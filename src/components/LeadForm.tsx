@@ -53,8 +53,8 @@ export default function LeadForm() {
   if (submitted) {
     return (
       <div className="text-center py-8">
-        <div className="w-16 h-16 bg-health-green/10 rounded-full flex items-center justify-center mx-auto mb-4">
-          <svg className="w-8 h-8 text-health-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-4">
+          <svg className="w-8 h-8 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
           </svg>
         </div>
@@ -146,7 +146,7 @@ export default function LeadForm() {
             value={formData.cargas}
             onChange={handleChange}
             className="form-input w-full px-4 py-3 bg-bg-light border border-bg-gray rounded-xl text-text-dark transition appearance-none cursor-pointer"
-            style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%2364748B'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E")`, backgroundRepeat: 'no-repeat', backgroundPosition: 'right 12px center', backgroundSize: '20px' }}
+            style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%2394A3B8'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E")`, backgroundRepeat: 'no-repeat', backgroundPosition: 'right 12px center', backgroundSize: '20px' }}
           >
             <option value="">Selecciona</option>
             <option value="0">Sin cargas</option>
@@ -167,7 +167,7 @@ export default function LeadForm() {
             value={formData.isapre}
             onChange={handleChange}
             className="form-input w-full px-4 py-3 bg-bg-light border border-bg-gray rounded-xl text-text-dark transition appearance-none cursor-pointer"
-            style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%2364748B'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E")`, backgroundRepeat: 'no-repeat', backgroundPosition: 'right 12px center', backgroundSize: '20px' }}
+            style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%2394A3B8'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E")`, backgroundRepeat: 'no-repeat', backgroundPosition: 'right 12px center', backgroundSize: '20px' }}
           >
             <option value="">Selecciona</option>
             {isapres.map(i => <option key={i} value={i}>{i}</option>)}
@@ -187,7 +187,7 @@ export default function LeadForm() {
             value={formData.ingreso}
             onChange={handleChange}
             className="form-input w-full px-4 py-3 bg-bg-light border border-bg-gray rounded-xl text-text-dark transition appearance-none cursor-pointer"
-            style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%2364748B'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E")`, backgroundRepeat: 'no-repeat', backgroundPosition: 'right 12px center', backgroundSize: '20px' }}
+            style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%2394A3B8'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E")`, backgroundRepeat: 'no-repeat', backgroundPosition: 'right 12px center', backgroundSize: '20px' }}
           >
             <option value="">Selecciona</option>
             <option value="500-800">$500.000 - $800.000</option>
@@ -208,7 +208,7 @@ export default function LeadForm() {
             value={formData.region}
             onChange={handleChange}
             className="form-input w-full px-4 py-3 bg-bg-light border border-bg-gray rounded-xl text-text-dark transition appearance-none cursor-pointer"
-            style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%2364748B'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E")`, backgroundRepeat: 'no-repeat', backgroundPosition: 'right 12px center', backgroundSize: '20px' }}
+            style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%2394A3B8'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E")`, backgroundRepeat: 'no-repeat', backgroundPosition: 'right 12px center', backgroundSize: '20px' }}
           >
             <option value="">Selecciona</option>
             {regiones.map(r => <option key={r} value={r}>{r}</option>)}
@@ -227,7 +227,7 @@ export default function LeadForm() {
           value={formData.motivo}
           onChange={handleChange}
           className="form-input w-full px-4 py-3 bg-bg-light border border-bg-gray rounded-xl text-text-dark transition appearance-none cursor-pointer"
-          style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%2364748B'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E")`, backgroundRepeat: 'no-repeat', backgroundPosition: 'right 12px center', backgroundSize: '20px' }}
+          style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%2394A3B8'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E")`, backgroundRepeat: 'no-repeat', backgroundPosition: 'right 12px center', backgroundSize: '20px' }}
         >
           <option value="">Selecciona un motivo</option>
           {motivos.map(m => <option key={m} value={m}>{m}</option>)}
@@ -237,7 +237,7 @@ export default function LeadForm() {
       <button
         type="submit"
         disabled={isSubmitting}
-        className="btn-primary w-full bg-health-green hover:bg-health-green-dark disabled:bg-health-green/50 text-white font-semibold py-4 px-6 rounded-full text-base sm:text-lg transition touch-manipulation disabled:cursor-not-allowed mt-2"
+        className="btn-primary w-full bg-accent hover:bg-accent-dark disabled:bg-accent/50 text-white font-semibold py-4 px-6 rounded-full text-base sm:text-lg transition touch-manipulation disabled:cursor-not-allowed mt-2"
       >
         {isSubmitting ? (
           <span className="flex items-center justify-center gap-2">

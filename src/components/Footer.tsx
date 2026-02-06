@@ -6,7 +6,7 @@ export default function Footer() {
         <div className="grid sm:grid-cols-3 gap-6 mb-10 pb-10 border-b border-white/10">
           <div className="flex items-center gap-4">
             <div className="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center flex-shrink-0">
-              <svg className="w-6 h-6 text-health-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
               </svg>
             </div>
@@ -17,7 +17,7 @@ export default function Footer() {
           </div>
           <div className="flex items-center gap-4">
             <div className="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center flex-shrink-0">
-              <svg className="w-6 h-6 text-health-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
               </svg>
             </div>
@@ -28,7 +28,7 @@ export default function Footer() {
           </div>
           <div className="flex items-center gap-4">
             <div className="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center flex-shrink-0">
-              <svg className="w-6 h-6 text-health-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 21v-4m0 0V5a2 2 0 012-2h6.5l1 1H21l-3 6 3 6h-8.5l-1-1H5a2 2 0 00-2 2zm9-13.5V9" />
               </svg>
             </div>
@@ -43,7 +43,7 @@ export default function Footer() {
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-10">
           <div>
             <p className="text-xl font-bold mb-3">
-              Elige un <span className="text-health-green">Plan</span>
+              Elige un <span className="text-accent">Plan</span>
             </p>
             <p className="text-white/60 text-sm">
               Asesoría gratuita para elegir tu plan de Isapre en Chile.
@@ -76,8 +76,8 @@ export default function Footer() {
             <ul className="space-y-2 text-white/60 text-sm">
               <li>Santiago, Chile</li>
               <li>
-                <a href="mailto:contacto@isapre360.cl" className="hover:text-health-green transition">
-                  contacto@isapre360.cl
+                <a href="mailto:contacto@eligeunplan.cl" className="hover:text-accent transition">
+                  contacto@eligeunplan.cl
                 </a>
               </li>
             </ul>

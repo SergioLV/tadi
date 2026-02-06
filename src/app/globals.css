@@ -78,20 +78,31 @@ section[id] {
 }
 
 /* Carousel animation */
-@keyframes scroll {
+@keyframes scroll-seamless {
   0% {
     transform: translateX(0);
   }
   100% {
-    transform: translateX(-50%);
+    transform: translateX(calc(-140px * 7 - 32px * 7));
   }
 }
 
-.animate-scroll {
-  animation: scroll 20s linear infinite;
+@media (min-width: 640px) {
+  @keyframes scroll-seamless {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(calc(-160px * 7 - 48px * 7));
+    }
+  }
 }
 
-.animate-scroll:hover {
+.animate-scroll-seamless {
+  animation: scroll-seamless 19s linear infinite;
+}
+
+.animate-scroll-seamless:hover {
   animation-play-state: paused;
 }
 

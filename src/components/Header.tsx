@@ -17,12 +17,12 @@ export default function Header() {
       <nav className="max-w-6xl mx-auto px-5 sm:px-6" aria-label="Navegación principal">
         <div className="flex justify-between h-16 sm:h-20 items-center">
           <a href="#inicio" className="text-xl sm:text-2xl font-bold text-primary">
-            Elige un <span className="text-health-green">Plan</span>
+            Elige un <span className="text-accent">Plan</span>
           </a>
 
           <a
             href="#formulario"
-            className="bg-health-green hover:bg-health-green-dark text-white font-semibold py-2.5 px-5 sm:px-6 rounded-full text-sm transition touch-manipulation"
+            className="bg-accent hover:bg-accent-dark text-white font-semibold py-2.5 px-5 sm:px-6 rounded-full text-sm transition touch-manipulation"
           >
             Evaluar gratis
           </a>
