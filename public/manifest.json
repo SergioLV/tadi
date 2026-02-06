@@ -1,21 +1,27 @@
 {
-  "name": "Isapre360 - Asesoría en Isapres",
-  "short_name": "Isapre360",
-  "description": "Cotiza y compara planes de Isapre gratis con asesoría profesional",
+  "name": "Elige un Plan - Compara Isapres en Chile",
+  "short_name": "Elige un Plan",
+  "description": "Compara todas las Isapres de Chile y ahorra hasta $720.000 al año. Asesoría gratuita y personalizada.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
-  "theme_color": "#0A2540",
+  "theme_color": "#059669",
   "icons": [
     {
       "src": "/icon-192.png",
       "sizes": "192x192",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"
     },
     {
       "src": "/icon-512.png",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"
     }
-  ]
+  ],
+  "categories": ["health", "finance", "lifestyle"],
+  "lang": "es-CL",
+  "dir": "ltr",
+  "orientation": "portrait-primary"
 }

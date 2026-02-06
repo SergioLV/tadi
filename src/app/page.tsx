@@ -3,8 +3,38 @@ import LeadForm from '@/components/LeadForm';
 import IsapreCarousel from '@/components/IsapreCarousel';
 
 export default function Home() {
+  // Schema para casos de éxito (testimonios)
+  const testimonialsSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    itemListElement: [
+      {
+        '@type': 'Review',
+        author: { '@type': 'Person', name: 'Felipe Rojas' },
+        reviewRating: { '@type': 'Rating', ratingValue: '5' },
+        reviewBody: 'Profesional independiente que encontró un plan con mejor cobertura ambulatoria y ahorra $360.000 al año.',
+      },
+      {
+        '@type': 'Review',
+        author: { '@type': 'Person', name: 'Javiera Muñoz' },
+        reviewRating: { '@type': 'Rating', ratingValue: '5' },
+        reviewBody: 'Madre de familia con plan adaptado y excelente cobertura pediátrica. Ahorra $720.000 al año.',
+      },
+      {
+        '@type': 'Review',
+        author: { '@type': 'Person', name: 'Constanza Silva' },
+        reviewRating: { '@type': 'Rating', ratingValue: '5' },
+        reviewBody: 'Pareja joven con plan conjunto y excelente cobertura de maternidad. Ahorra $540.000 al año.',
+      },
+    ],
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(testimonialsSchema) }}
+      />
       {/* HERO with Form */}
       <section id="inicio" className="min-h-screen pt-24 sm:pt-28 pb-6 sm:pb-12 bg-gradient-to-br from-bg-light via-white to-bg-light relative overflow-hidden">
         {/* Subtle decorative shapes */}
@@ -295,9 +325,11 @@ export default function Home() {
               <div className="relative rounded-2xl overflow-hidden shadow-soft">
                 <img 
                   src="/images/familia.png" 
-                  alt="Familia chilena protegida con mejor cobertura de Isapre"
+                  alt="Personas chilenas de diferentes edades comparando planes de Isapre y ahorrando en salud"
                   className="w-full h-auto object-cover"
                   loading="lazy"
+                  width="600"
+                  height="400"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent pointer-events-none" />
               </div>
@@ -500,9 +532,11 @@ export default function Home() {
                 >
                   <img 
                     src={isapre.logo} 
-                    alt={`Logo ${isapre.name}`}
+                    alt={`Comparar planes de ${isapre.name} - Isapre en Chile`}
                     className="max-h-10 sm:max-h-12 w-auto object-contain transition-all hover:scale-110"
                     loading="lazy"
+                    width="120"
+                    height="48"
                   />
                 </div>
               ))}
