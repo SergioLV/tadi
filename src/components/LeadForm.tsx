@@ -35,11 +35,34 @@ export default function LeadForm() {
     region: '',
     motivo: '',
   });
+  const [errors, setErrors] = useState<Record<string, string>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
+  const validateForm = () => {
+    const newErrors: Record<string, string> = {};
+    
+    if (!formData.nombre.trim()) newErrors.nombre = 'Por favor ingresa tu nombre';
+    if (!formData.telefono.trim()) newErrors.telefono = 'Por favor ingresa tu teléfono';
+    if (!formData.edad) newErrors.edad = 'Por favor ingresa tu edad';
+    if (!formData.rut.trim()) newErrors.rut = 'Por favor ingresa tu RUT';
+    if (!formData.cargas) newErrors.cargas = 'Por favor selecciona una opción';
+    if (!formData.isapre) newErrors.isapre = 'Por favor selecciona tu Isapre';
+    if (!formData.ingreso) newErrors.ingreso = 'Por favor selecciona tu ingreso';
+    if (!formData.region) newErrors.region = 'Por favor selecciona tu región';
+    if (!formData.motivo) newErrors.motivo = 'Por favor selecciona un motivo';
+    
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    if (!validateForm()) {
+      return;
+    }
+    
     setIsSubmitting(true);
     await new Promise(resolve => setTimeout(resolve, 1200));
     setIsSubmitting(false);
@@ -47,7 +70,12 @@ export default function LeadForm() {
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+    // Clear error when user starts typing
+    if (errors[name]) {
+      setErrors({ ...errors, [name]: '' });
+    }
   };
 
   if (submitted) {
@@ -59,13 +87,13 @@ export default function LeadForm() {
           </svg>
         </div>
         <h3 className="text-xl font-bold text-text-dark mb-2">¡Recibimos tu solicitud!</h3>
-        <p className="text-text-medium">Te contactaremos dentro de las próximas 24 horas hábiles.</p>
+        <p className="text-text-medium">Gracias por confiar en nosotros.</p>
       </div>
     );
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4">
+    <form onSubmit={handleSubmit} className="space-y-4" noValidate>
       <div className="grid sm:grid-cols-2 gap-4">
         <div>
           <label htmlFor="nombre" className="block text-sm font-medium text-text-dark mb-1.5">
@@ -75,12 +103,14 @@ export default function LeadForm() {
             type="text"
             id="nombre"
             name="nombre"
-            required
             value={formData.nombre}
             onChange={handleChange}
             placeholder="Tu nombre"
-            className="form-input w-full px-4 py-3 bg-bg-light border border-bg-gray rounded-xl text-text-dark placeholder:text-text-light transition"
+            className={`form-input w-full px-4 py-3 bg-bg-light border rounded-xl text-text-dark placeholder:text-text-light transition ${
+              errors.nombre ? 'border-red-400 focus:border-red-400' : 'border-bg-gray'
+            }`}
           />
+          {errors.nombre && <p className="text-red-500 text-xs mt-1">{errors.nombre}</p>}
         </div>
         <div>
           <label htmlFor="telefono" className="block text-sm font-medium text-text-dark mb-1.5">
@@ -90,12 +120,14 @@ export default function LeadForm() {
             type="tel"
             id="telefono"
             name="telefono"
-            required
             value={formData.telefono}
             onChange={handleChange}
             placeholder="+56 9 1234 5678"
-            className="form-input w-full px-4 py-3 bg-bg-light border border-bg-gray rounded-xl text-text-dark placeholder:text-text-light transition"
+            className={`form-input w-full px-4 py-3 bg-bg-light border rounded-xl text-text-dark placeholder:text-text-light transition ${
+              errors.telefono ? 'border-red-400 focus:border-red-400' : 'border-bg-gray'
+            }`}
           />
+          {errors.telefono && <p className="text-red-500 text-xs mt-1">{errors.telefono}</p>}
         </div>
       </div>
 
@@ -108,14 +140,16 @@ export default function LeadForm() {
             type="number"
             id="edad"
             name="edad"
-            required
             min="18"
             max="100"
             value={formData.edad}
             onChange={handleChange}
             placeholder="35"
-            className="form-input w-full px-4 py-3 bg-bg-light border border-bg-gray rounded-xl text-text-dark placeholder:text-text-light transition"
+            className={`form-input w-full px-4 py-3 bg-bg-light border rounded-xl text-text-dark placeholder:text-text-light transition ${
+              errors.edad ? 'border-red-400 focus:border-red-400' : 'border-bg-gray'
+            }`}
           />
+          {errors.edad && <p className="text-red-500 text-xs mt-1">{errors.edad}</p>}
         </div>
         <div>
           <label htmlFor="rut" className="block text-sm font-medium text-text-dark mb-1.5">
@@ -125,12 +159,14 @@ export default function LeadForm() {
             type="text"
             id="rut"
             name="rut"
-            required
             value={formData.rut}
             onChange={handleChange}
             placeholder="12.345.678-9"
-            className="form-input w-full px-4 py-3 bg-bg-light border border-bg-gray rounded-xl text-text-dark placeholder:text-text-light transition"
+            className={`form-input w-full px-4 py-3 bg-bg-light border rounded-xl text-text-dark placeholder:text-text-light transition ${
+              errors.rut ? 'border-red-400 focus:border-red-400' : 'border-bg-gray'
+            }`}
           />
+          {errors.rut && <p className="text-red-500 text-xs mt-1">{errors.rut}</p>}
         </div>
       </div>
 
@@ -142,10 +178,11 @@ export default function LeadForm() {
           <select
             id="cargas"
             name="cargas"
-            required
             value={formData.cargas}
             onChange={handleChange}
-            className="form-input w-full px-4 py-3 bg-bg-light border border-bg-gray rounded-xl text-text-dark transition appearance-none cursor-pointer"
+            className={`form-input w-full px-4 py-3 bg-bg-light border rounded-xl text-text-dark transition appearance-none cursor-pointer ${
+              errors.cargas ? 'border-red-400 focus:border-red-400' : 'border-bg-gray'
+            }`}
             style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%2394A3B8'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E")`, backgroundRepeat: 'no-repeat', backgroundPosition: 'right 12px center', backgroundSize: '20px' }}
           >
             <option value="">Selecciona</option>
@@ -155,6 +192,7 @@ export default function LeadForm() {
             <option value="3">3 cargas</option>
             <option value="4+">4 o más cargas</option>
           </select>
+          {errors.cargas && <p className="text-red-500 text-xs mt-1">{errors.cargas}</p>}
         </div>
         <div>
           <label htmlFor="isapre" className="block text-sm font-medium text-text-dark mb-1.5">
@@ -163,15 +201,17 @@ export default function LeadForm() {
           <select
             id="isapre"
             name="isapre"
-            required
             value={formData.isapre}
             onChange={handleChange}
-            className="form-input w-full px-4 py-3 bg-bg-light border border-bg-gray rounded-xl text-text-dark transition appearance-none cursor-pointer"
+            className={`form-input w-full px-4 py-3 bg-bg-light border rounded-xl text-text-dark transition appearance-none cursor-pointer ${
+              errors.isapre ? 'border-red-400 focus:border-red-400' : 'border-bg-gray'
+            }`}
             style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%2394A3B8'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E")`, backgroundRepeat: 'no-repeat', backgroundPosition: 'right 12px center', backgroundSize: '20px' }}
           >
             <option value="">Selecciona</option>
             {isapres.map(i => <option key={i} value={i}>{i}</option>)}
           </select>
+          {errors.isapre && <p className="text-red-500 text-xs mt-1">{errors.isapre}</p>}
         </div>
       </div>
 
@@ -183,10 +223,11 @@ export default function LeadForm() {
           <select
             id="ingreso"
             name="ingreso"
-            required
             value={formData.ingreso}
             onChange={handleChange}
-            className="form-input w-full px-4 py-3 bg-bg-light border border-bg-gray rounded-xl text-text-dark transition appearance-none cursor-pointer"
+            className={`form-input w-full px-4 py-3 bg-bg-light border rounded-xl text-text-dark transition appearance-none cursor-pointer ${
+              errors.ingreso ? 'border-red-400 focus:border-red-400' : 'border-bg-gray'
+            }`}
             style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%2394A3B8'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E")`, backgroundRepeat: 'no-repeat', backgroundPosition: 'right 12px center', backgroundSize: '20px' }}
           >
             <option value="">Selecciona</option>
@@ -196,6 +237,7 @@ export default function LeadForm() {
             <option value="1800-2500">$1.800.000 - $2.500.000</option>
             <option value="2500+">Más de $2.500.000</option>
           </select>
+          {errors.ingreso && <p className="text-red-500 text-xs mt-1">{errors.ingreso}</p>}
         </div>
         <div>
           <label htmlFor="region" className="block text-sm font-medium text-text-dark mb-1.5">
@@ -204,15 +246,17 @@ export default function LeadForm() {
           <select
             id="region"
             name="region"
-            required
             value={formData.region}
             onChange={handleChange}
-            className="form-input w-full px-4 py-3 bg-bg-light border border-bg-gray rounded-xl text-text-dark transition appearance-none cursor-pointer"
+            className={`form-input w-full px-4 py-3 bg-bg-light border rounded-xl text-text-dark transition appearance-none cursor-pointer ${
+              errors.region ? 'border-red-400 focus:border-red-400' : 'border-bg-gray'
+            }`}
             style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%2394A3B8'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E")`, backgroundRepeat: 'no-repeat', backgroundPosition: 'right 12px center', backgroundSize: '20px' }}
           >
             <option value="">Selecciona</option>
             {regiones.map(r => <option key={r} value={r}>{r}</option>)}
           </select>
+          {errors.region && <p className="text-red-500 text-xs mt-1">{errors.region}</p>}
         </div>
       </div>
 
@@ -223,15 +267,17 @@ export default function LeadForm() {
         <select
           id="motivo"
           name="motivo"
-          required
           value={formData.motivo}
           onChange={handleChange}
-          className="form-input w-full px-4 py-3 bg-bg-light border border-bg-gray rounded-xl text-text-dark transition appearance-none cursor-pointer"
+          className={`form-input w-full px-4 py-3 bg-bg-light border rounded-xl text-text-dark transition appearance-none cursor-pointer ${
+            errors.motivo ? 'border-red-400 focus:border-red-400' : 'border-bg-gray'
+          }`}
           style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%2394A3B8'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E")`, backgroundRepeat: 'no-repeat', backgroundPosition: 'right 12px center', backgroundSize: '20px' }}
         >
           <option value="">Selecciona un motivo</option>
           {motivos.map(m => <option key={m} value={m}>{m}</option>)}
         </select>
+        {errors.motivo && <p className="text-red-500 text-xs mt-1">{errors.motivo}</p>}
       </div>
 
       <button

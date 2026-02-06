@@ -77,7 +77,7 @@ export default function Home() {
                     Evalúa tu Isapre <span className="text-accent">gratis</span>
                   </h2>
                   <p className="text-text-medium text-sm">
-                    Completa el formulario y te contactamos en 24 horas
+                    Completa el formulario y te contactamos lo antes posible.
                   </p>
                 </div>
                 <LeadForm />
@@ -334,7 +334,7 @@ export default function Home() {
               ¿Listo para saber si puedes ahorrar?
             </h2>
             <p className="text-white/70 text-lg mb-8">
-              Completa el formulario y te contactamos en menos de 24 horas
+              Completa el formulario y te contactamos lo antes posible
             </p>
             <a
               href="#formulario"
