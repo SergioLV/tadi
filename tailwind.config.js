@@ -8,25 +8,37 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: '#0A2540',
-        mint: '#3DDC97',
-        'mint-dark': '#2BC485',
-        'gray-light': '#F8FAFC',
-        'gray-medium': '#64748B',
+        // Primary - Deep Chilean Blue (trust)
+        primary: '#1E3A8A',
+        'primary-light': '#3B5998',
+        'primary-dark': '#1E3A5F',
+        // Secondary - Clinical White
+        white: '#FFFFFF',
+        // Accent Chile - Soft Chilean Red
+        'chile-red': '#C53030',
+        'chile-red-light': '#E53E3E',
+        // Accent Health - Health Green
+        'health-green': '#16A34A',
+        'health-green-dark': '#15803D',
+        'health-green-light': '#22C55E',
+        // Background - Light Gray
+        'bg-light': '#F1F5F9',
+        'bg-gray': '#E2E8F0',
+        // Text - Dark Gray
+        'text-dark': '#0F172A',
+        'text-medium': '#475569',
+        'text-light': '#64748B',
       },
-      animation: {
-        'fade-in': 'fadeIn 0.6s ease-out forwards',
-        'slide-up': 'slideUp 0.6s ease-out forwards',
+      fontFamily: {
+        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
       },
-      keyframes: {
-        fadeIn: {
-          '0%': { opacity: '0' },
-          '100%': { opacity: '1' },
-        },
-        slideUp: {
-          '0%': { opacity: '0', transform: 'translateY(20px)' },
-          '100%': { opacity: '1', transform: 'translateY(0)' },
-        },
+      borderRadius: {
+        '4xl': '2rem',
+      },
+      boxShadow: {
+        'soft': '0 4px 20px rgba(30, 58, 138, 0.08)',
+        'medium': '0 8px 30px rgba(30, 58, 138, 0.12)',
+        'strong': '0 12px 40px rgba(30, 58, 138, 0.16)',
       },
     },
   },

@@ -1,11 +1,11 @@
-# Robots.txt para Isapre360
-# https://isapre360.cl
+# Robots.txt para Elige un Plan
+# https://eligeunplan.cl
 
 User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://isapre360.cl/sitemap.xml
+Sitemap: https://eligeunplan.cl/sitemap.xml
 
 # Crawl-delay (opcional, para ser amigable con los bots)
 Crawl-delay: 1
