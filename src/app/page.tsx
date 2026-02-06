@@ -110,7 +110,7 @@ export default function Home() {
           <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
             {/* Caso 1: Felipe */}
             <FadeSection delay={0}>
-              <div className="bg-white rounded-3xl p-6 lg:p-8 shadow-medium border border-accent/10 h-full flex flex-col">
+              <div className="bg-white rounded-3xl p-6 lg:p-8 shadow-medium border border-accent/10 h-full flex flex-col transition-all duration-300 hover:scale-105 hover:shadow-lg">
                 <div className="flex flex-col gap-6 flex-1">
                   {/* Info */}
                   <div>
@@ -161,7 +161,7 @@ export default function Home() {
 
             {/* Caso 2: Javiera */}
             <FadeSection delay={100}>
-              <div className="bg-white rounded-3xl p-6 lg:p-8 shadow-medium border border-accent/10 h-full flex flex-col">
+              <div className="bg-white rounded-3xl p-6 lg:p-8 shadow-medium border border-accent/10 h-full flex flex-col transition-all duration-300 hover:scale-105 hover:shadow-lg">
                 <div className="flex flex-col gap-6 flex-1">
                   {/* Info */}
                   <div>
@@ -212,7 +212,7 @@ export default function Home() {
 
             {/* Caso 3: Constanza */}
             <FadeSection delay={200}>
-              <div className="bg-white rounded-3xl p-6 lg:p-8 shadow-medium border border-accent/10 h-full flex flex-col">
+              <div className="bg-white rounded-3xl p-6 lg:p-8 shadow-medium border border-accent/10 h-full flex flex-col transition-all duration-300 hover:scale-105 hover:shadow-lg">
                 <div className="flex flex-col gap-6 flex-1">
                   {/* Info */}
                   <div>
