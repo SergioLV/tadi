@@ -8,18 +8,22 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        // Primary - Azul profesional (confianza)
-        primary: '#0F172A',
-        'primary-light': '#1E293B',
-        // Accent - Verde salud (CTAs y acentos)
+        // Primary - Verde salud (color dominante)
+        primary: '#059669',
+        'primary-light': '#10B981',
+        'primary-dark': '#047857',
+        // Accent - Verde más claro para variaciones
         accent: '#059669',
         'accent-light': '#10B981',
         'accent-dark': '#047857',
+        // Secondary - Azul oscuro (complemento, fondos)
+        secondary: '#0F172A',
+        'secondary-light': '#1E293B',
         // Backgrounds
         'bg-light': '#F8FAFC',
         'bg-gray': '#E2E8F0',
-        // Text
-        'text-dark': '#0F172A',
+        // Text - Azul más claro para que se note el tono
+        'text-dark': '#1E293B',
         'text-medium': '#475569',
         'text-light': '#94A3B8',
       },

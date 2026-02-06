@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <>
       {/* HERO with Form */}
-      <section id="inicio" className="min-h-screen pt-40 sm:pt-48 pb-6 sm:pb-12 bg-gradient-to-br from-bg-light via-white to-bg-light relative overflow-hidden">
+      <section id="inicio" className="min-h-screen pt-24 sm:pt-28 pb-6 sm:pb-12 bg-gradient-to-br from-bg-light via-white to-bg-light relative overflow-hidden">
         {/* Subtle decorative shapes */}
         <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" aria-hidden="true" />
         <div className="absolute bottom-0 left-0 w-80 h-80 bg-accent/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2" aria-hidden="true" />
@@ -94,7 +94,7 @@ export default function Home() {
 
       {/* Problem Section - Empatía y validación */}
       <section className="py-16 sm:py-24 bg-white" aria-labelledby="problema-title">
-        <div className="max-w-4xl mx-auto px-5 sm:px-6">
+        <div className="max-w-6xl mx-auto px-5 sm:px-6">
           <FadeSection>
             <header className="text-center mb-12">
               <p className="text-accent font-medium mb-3">¿Te sientes identificado?</p>
@@ -104,27 +104,43 @@ export default function Home() {
             </header>
           </FadeSection>
 
-          <div className="space-y-4 mb-12">
-            {[
-              '¿Sientes que pagas demasiado cada mes?',
-              '¿No entiendes bien qué cubre tu plan?',
-              '¿Tienes coberturas que nunca usas?',
-              '¿Te da miedo cambiarte porque no sabes por dónde empezar?',
-            ].map((question, i) => (
-              <FadeSection key={i} delay={i * 100}>
-                <div className="flex items-center gap-4 bg-bg-light rounded-xl p-5 hover:bg-bg-gray/50 transition">
-                  <div className="w-8 h-8 bg-accent/10 rounded-full flex items-center justify-center flex-shrink-0">
-                    <svg className="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center mb-12">
+            {/* Left: Image */}
+            <FadeSection delay={100}>
+              <div className="relative rounded-2xl overflow-hidden shadow-soft">
+                <img 
+                  src="/images/familia.png" 
+                  alt="Familia chilena protegida con mejor cobertura de Isapre"
+                  className="w-full h-auto object-cover"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent pointer-events-none" />
+              </div>
+            </FadeSection>
+
+            {/* Right: Questions */}
+            <div className="space-y-4">
+              {[
+                '¿Sientes que pagas demasiado cada mes?',
+                '¿No entiendes bien qué cubre tu plan?',
+                '¿Tienes coberturas que nunca usas?',
+                '¿Te da miedo cambiarte porque no sabes por dónde empezar?',
+              ].map((question, i) => (
+                <FadeSection key={i} delay={200 + i * 100}>
+                  <div className="flex items-center gap-4 bg-bg-light rounded-xl p-5 hover:bg-bg-gray/50 transition">
+                    <div className="w-8 h-8 bg-accent/10 rounded-full flex items-center justify-center flex-shrink-0">
+                      <svg className="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                      </svg>
+                    </div>
+                    <p className="text-text-dark font-medium text-lg">{question}</p>
                   </div>
-                  <p className="text-text-dark font-medium text-lg">{question}</p>
-                </div>
-              </FadeSection>
-            ))}
+                </FadeSection>
+              ))}
+            </div>
           </div>
 
-          <FadeSection delay={450}>
+          <FadeSection delay={650}>
             <div className="text-center bg-bg-light rounded-2xl p-8">
               <p className="text-text-medium text-lg mb-6">
                 <strong className="text-text-dark">No estás solo.</strong> Miles de chilenos pagan más de lo necesario por su Isapre. La buena noticia es que tiene solución.
@@ -161,10 +177,21 @@ export default function Home() {
             ].map((item, i) => (
               <FadeSection key={i} delay={i * 100}>
                 <article className="relative">
-                  <div className="bg-white rounded-2xl p-6 sm:p-8 shadow-soft h-full text-center">
-                    <div className="w-12 h-12 bg-accent text-white font-bold text-xl rounded-full flex items-center justify-center mx-auto mb-5">
-                      {item.step}
+                  {/* Connector line - hidden on mobile, shown on tablet+ */}
+                  {i < 2 && (
+                    <div className="hidden sm:block absolute top-6 left-[calc(100%+1rem)] w-8 h-0.5 bg-accent/30" aria-hidden="true" />
+                  )}
+                  
+                  <div className="bg-white rounded-2xl p-6 sm:p-8 shadow-soft h-full text-center relative transition-all duration-300 hover:scale-105 hover:shadow-medium">
+                    {/* Step number badge */}
+                    <div className="relative inline-block mb-5">
+                      <div className="w-14 h-14 bg-gradient-to-br from-accent to-accent-dark text-white font-bold text-2xl rounded-2xl flex items-center justify-center shadow-md">
+                        {item.step}
+                      </div>
+                      {/* Small accent dot */}
+                      <div className="absolute -top-1 -right-1 w-4 h-4 bg-accent rounded-full border-2 border-white" />
                     </div>
+                    
                     <h3 className="font-semibold text-text-dark text-lg mb-2">{item.title}</h3>
                     <p className="text-text-medium">{item.desc}</p>
                   </div>
@@ -176,8 +203,12 @@ export default function Home() {
       </section>
 
       {/* Trust Section - Por qué confiar */}
-      <section className="py-16 sm:py-24 bg-white" aria-labelledby="beneficios-title">
-        <div className="max-w-6xl mx-auto px-5 sm:px-6">
+      <section className="py-16 sm:py-24 bg-gradient-to-b from-white via-bg-light to-white relative overflow-hidden" aria-labelledby="beneficios-title">
+        {/* Decorative background shapes */}
+        <div className="absolute top-0 right-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl" aria-hidden="true" />
+        <div className="absolute bottom-0 left-0 w-80 h-80 bg-primary/5 rounded-full blur-3xl" aria-hidden="true" />
+        
+        <div className="max-w-6xl mx-auto px-5 sm:px-6 relative">
           <FadeSection>
             <header className="text-center mb-12 sm:mb-16">
               <p className="text-accent font-medium mb-3">¿Por qué nosotros?</p>
@@ -197,6 +228,7 @@ export default function Home() {
                 ),
                 title: '100% gratis',
                 desc: 'No te cobramos nada por la evaluación',
+                color: 'from-accent/10 to-accent/5',
               },
               {
                 icon: (
@@ -206,6 +238,7 @@ export default function Home() {
                 ),
                 title: 'Sin presiones',
                 desc: 'Tú decides si quieres cambiarte o no',
+                color: 'from-primary/10 to-primary/5',
               },
               {
                 icon: (
@@ -215,6 +248,7 @@ export default function Home() {
                 ),
                 title: 'Expertos locales',
                 desc: 'Conocemos el mercado chileno a fondo',
+                color: 'from-accent/10 to-accent/5',
               },
               {
                 icon: (
@@ -224,15 +258,18 @@ export default function Home() {
                 ),
                 title: 'Datos seguros',
                 desc: 'Tu información está protegida',
+                color: 'from-primary/10 to-primary/5',
               },
             ].map((item, i) => (
               <FadeSection key={i} delay={i * 80}>
-                <article className="text-center">
-                  <div className="w-14 h-14 bg-accent/10 rounded-xl flex items-center justify-center mx-auto mb-4 text-accent">
-                    {item.icon}
+                <article className="group">
+                  <div className={`bg-gradient-to-br ${item.color} backdrop-blur-sm rounded-2xl p-6 h-full text-center transition-all duration-300 hover:scale-105 hover:shadow-soft border border-white/50`}>
+                    <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center mx-auto mb-4 text-accent shadow-sm group-hover:shadow-md transition-shadow">
+                      {item.icon}
+                    </div>
+                    <h3 className="font-semibold text-text-dark mb-2 text-lg">{item.title}</h3>
+                    <p className="text-text-medium text-sm leading-relaxed">{item.desc}</p>
                   </div>
-                  <h3 className="font-semibold text-text-dark mb-2">{item.title}</h3>
-                  <p className="text-text-medium text-sm">{item.desc}</p>
                 </article>
               </FadeSection>
             ))}
@@ -303,7 +340,7 @@ export default function Home() {
       </section>
 
       {/* Final CTA */}
-      <section className="py-16 sm:py-24 bg-primary" aria-labelledby="cta-title">
+      <section className="py-16 sm:py-24 bg-secondary" aria-labelledby="cta-title">
         <div className="max-w-3xl mx-auto px-5 sm:px-6 text-center">
           <FadeSection>
             <h2 id="cta-title" className="text-2xl sm:text-4xl font-bold text-white mb-4">
@@ -314,7 +351,7 @@ export default function Home() {
             </p>
             <a
               href="#formulario"
-              className="btn-primary inline-block bg-accent hover:bg-accent-dark text-white font-semibold py-4 px-10 rounded-full text-lg transition touch-manipulation"
+              className="btn-primary inline-block bg-primary hover:bg-primary-dark text-white font-semibold py-4 px-10 rounded-full text-lg transition touch-manipulation"
             >
               Evaluar mi Isapre gratis
             </a>
