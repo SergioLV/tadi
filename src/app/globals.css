@@ -87,3 +87,9 @@ section[id] {
   transform: translateY(0);
   will-change: auto;
 }
+
+
+/* Coverage carousel - drag handled via JS */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}

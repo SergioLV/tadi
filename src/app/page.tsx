@@ -1,6 +1,7 @@
 import FadeSection from '@/components/FadeSection';
 import LeadForm from '@/components/LeadForm';
 import IsapreCarousel from '@/components/IsapreCarousel';
+import CoverageCarousel from '@/components/CoverageCarousel';
 import Image from 'next/image';
 
 export default function Home() {
@@ -120,6 +121,27 @@ export default function Home() {
         {/* Isapre Carousel - mobile only */}
         <div className="mt-8 sm:mt-12 lg:hidden">
           <IsapreCarousel />
+        </div>
+      </section>
+
+      {/* Coberturas de Isapre */}
+      <section className="py-12 sm:py-16 bg-white" aria-labelledby="coberturas-title">
+        <div className="max-w-7xl mx-auto px-5 sm:px-6">
+          <FadeSection>
+            <div className="text-center mb-10">
+              <p className="text-accent font-semibold mb-2">🏥 Conoce tus beneficios</p>
+              <h2 id="coberturas-title" className="text-2xl sm:text-3xl font-bold text-text-dark mb-3">
+                ¿Qué coberturas incluye tu Isapre?
+              </h2>
+              <p className="text-text-medium max-w-2xl mx-auto">
+                Conoce las principales coberturas que puedes obtener con un buen plan
+              </p>
+            </div>
+          </FadeSection>
+
+          <FadeSection delay={100}>
+            <CoverageCarousel />
+          </FadeSection>
         </div>
       </section>
 
