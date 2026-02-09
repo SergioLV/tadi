@@ -38,7 +38,7 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(testimonialsSchema) }}
       />
       {/* HERO with Form */}
-      <section id="inicio" className="min-h-screen pt-24 sm:pt-28 pb-6 sm:pb-12 bg-gradient-to-br from-bg-light via-white to-bg-light relative overflow-hidden">
+      <section id="inicio" className="pt-24 sm:pt-28 pb-6 sm:pb-12 bg-gradient-to-br from-bg-light via-white to-bg-light relative overflow-hidden">
         {/* Subtle decorative shapes */}
         <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" aria-hidden="true" />
         <div className="absolute bottom-0 left-0 w-80 h-80 bg-accent/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2" aria-hidden="true" />
@@ -46,21 +46,22 @@ export default function Home() {
         <div className="max-w-6xl mx-auto px-5 sm:px-6 relative">
           <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start">
             {/* Left: Content */}
-            <div className="pt-4 sm:pt-8 lg:pt-12">
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-text-dark leading-tight mb-5 sm:mb-6">
-                ¿Pensando en cambiarte a una <span className="text-accent">mejor Isapre</span> en Chile?
+            <div className="lg:pt-4">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-text-dark leading-tight mb-5 sm:mb-6">
+                Deja de pagar de más por tu <span className="text-accent">plan de salud</span>
               </h1>
-              <p className="text-lg sm:text-xl text-text-medium mb-8 leading-relaxed">
-                Te ayudamos a <strong className="text-accent">reducir costos</strong> y <strong className="text-accent">mejorar tu cobertura</strong> — gratis y sin compromiso.
+              <p className="text-lg sm:text-xl text-text-medium mb-6 leading-relaxed">
+                Equipo multidisciplinario experto en <strong className="text-accent">Fonasa e Isapres</strong> con <span className="bg-accent/10 text-accent font-semibold px-2 py-0.5 rounded-md">asesoría 100% gratuita</span>.
               </p>
 
               {/* Trust bullets */}
-              <ul className="space-y-4 mb-8">
+              <ul className="space-y-3 mb-6">
                 {[
-                  'Ahorra en tus pagos mensuales',
-                  'Mejor cobertura y beneficios',
-                  'Asesoría 100% gratuita',
-                  'Rápido, seguro y confidencial',
+                  'Planes individuales y familiares',
+                  'Accede a mejores coberturas',
+                  'Evita alzas innecesarias',
+                  'Copagos fijos y beneficios gratuitos',
+                  'Orientación y apoyo permanente',
                 ].map((item, i) => (
                   <li key={i} className="flex items-center gap-3">
                     <span className="w-6 h-6 bg-accent/10 rounded-full flex items-center justify-center flex-shrink-0">
@@ -72,6 +73,21 @@ export default function Home() {
                   </li>
                 ))}
               </ul>
+
+              {/* Convenios */}
+              <div className="mb-6">
+                <p className="text-text-light text-sm font-medium mb-2">Convenios incluidos:</p>
+                <div className="flex flex-wrap gap-2">
+                  {['Salud mental', 'Dental', 'Kinesiológico', 'Terapeuta ocupacional', 'Telemedicina 24/7', 'Cobertura maternal'].map((convenio) => (
+                    <span key={convenio} className="inline-flex items-center gap-1.5 text-sm font-medium text-accent bg-accent/10 px-3 py-1.5 rounded-full">
+                      <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
+                      </svg>
+                      {convenio}
+                    </span>
+                  ))}
+                </div>
+              </div>
 
               {/* Trust indicators - desktop */}
               <div className="hidden lg:flex items-center gap-6 pt-4 border-t border-bg-gray">
@@ -102,7 +118,7 @@ export default function Home() {
             </div>
 
             {/* Right: Form */}
-            <div id="formulario" className="lg:sticky lg:top-24">
+            <div id="formulario" className="lg:pt-4">
               <div className="bg-white rounded-2xl sm:rounded-3xl p-6 sm:p-8 shadow-medium border border-bg-gray/50">
                 <div className="text-center mb-6">
                   <h2 className="text-xl sm:text-2xl font-bold text-text-dark mb-2">
@@ -145,7 +161,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Ejemplo real - Sección de casos de éxito */}
+      {/* Ejemplo real - Sección de casos de éxito - COMENTADO
       <section className="py-12 sm:py-16 bg-gradient-to-br from-accent/5 via-white to-accent/5" aria-labelledby="ejemplo-title">
         <div className="max-w-7xl mx-auto px-5 sm:px-6">
           <FadeSection>
@@ -161,11 +177,10 @@ export default function Home() {
           </FadeSection>
 
           <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
-            {/* Caso 1: Felipe */}
+            {/* Caso 1: Felipe * /}
             <FadeSection delay={0}>
               <div className="bg-white rounded-3xl p-6 lg:p-8 shadow-medium border border-accent/10 h-full flex flex-col transition-all duration-300 hover:scale-105 hover:shadow-lg">
                 <div className="flex flex-col gap-6 flex-1">
-                  {/* Info */}
                   <div>
                     <div className="flex items-center gap-3 mb-4">
                       <div className="w-12 h-12 bg-gradient-to-br from-accent/20 to-accent/10 rounded-xl flex items-center justify-center flex-shrink-0">
@@ -179,8 +194,6 @@ export default function Home() {
                       </div>
                     </div>
                   </div>
-
-                  {/* Numbers */}
                   <div className="bg-gradient-to-br from-accent/10 to-accent/5 rounded-2xl p-5 border border-accent/20 flex-1">
                     <div className="space-y-3">
                       <div className="flex justify-between items-center pb-2 border-b border-accent/20">
@@ -203,8 +216,6 @@ export default function Home() {
                       </div>
                     </div>
                   </div>
-
-                  {/* Description */}
                   <p className="text-text-medium text-sm leading-relaxed">
                     Profesional independiente con mejor cobertura ambulatoria.
                   </p>
@@ -212,11 +223,10 @@ export default function Home() {
               </div>
             </FadeSection>
 
-            {/* Caso 2: Javiera */}
+            {/* Caso 2: Javiera * /}
             <FadeSection delay={100}>
               <div className="bg-white rounded-3xl p-6 lg:p-8 shadow-medium border border-accent/10 h-full flex flex-col transition-all duration-300 hover:scale-105 hover:shadow-lg">
                 <div className="flex flex-col gap-6 flex-1">
-                  {/* Info */}
                   <div>
                     <div className="flex items-center gap-3 mb-4">
                       <div className="w-12 h-12 bg-gradient-to-br from-accent/20 to-accent/10 rounded-xl flex items-center justify-center flex-shrink-0">
@@ -230,8 +240,6 @@ export default function Home() {
                       </div>
                     </div>
                   </div>
-
-                  {/* Numbers */}
                   <div className="bg-gradient-to-br from-accent/10 to-accent/5 rounded-2xl p-5 border border-accent/20 flex-1">
                     <div className="space-y-3">
                       <div className="flex justify-between items-center pb-2 border-b border-accent/20">
@@ -254,8 +262,6 @@ export default function Home() {
                       </div>
                     </div>
                   </div>
-
-                  {/* Description */}
                   <p className="text-text-medium text-sm leading-relaxed">
                     Madre de familia con plan adaptado y excelente cobertura pediátrica.
                   </p>
@@ -263,11 +269,10 @@ export default function Home() {
               </div>
             </FadeSection>
 
-            {/* Caso 3: Constanza */}
+            {/* Caso 3: Constanza * /}
             <FadeSection delay={200}>
               <div className="bg-white rounded-3xl p-6 lg:p-8 shadow-medium border border-accent/10 h-full flex flex-col transition-all duration-300 hover:scale-105 hover:shadow-lg">
                 <div className="flex flex-col gap-6 flex-1">
-                  {/* Info */}
                   <div>
                     <div className="flex items-center gap-3 mb-4">
                       <div className="w-12 h-12 bg-gradient-to-br from-accent/20 to-accent/10 rounded-xl flex items-center justify-center flex-shrink-0">
@@ -281,8 +286,6 @@ export default function Home() {
                       </div>
                     </div>
                   </div>
-
-                  {/* Numbers */}
                   <div className="bg-gradient-to-br from-accent/10 to-accent/5 rounded-2xl p-5 border border-accent/20 flex-1">
                     <div className="space-y-3">
                       <div className="flex justify-between items-center pb-2 border-b border-accent/20">
@@ -305,8 +308,6 @@ export default function Home() {
                       </div>
                     </div>
                   </div>
-
-                  {/* Description */}
                   <p className="text-text-medium text-sm leading-relaxed">
                     Pareja joven con plan conjunto y excelente cobertura de maternidad.
                   </p>
@@ -315,7 +316,6 @@ export default function Home() {
             </FadeSection>
           </div>
 
-          {/* CTA */}
           <FadeSection delay={300}>
             <div className="mt-10 text-center">
               <p className="text-text-medium mb-4 text-lg">¿Quieres saber cuánto podrías ahorrar tú?</p>
@@ -329,6 +329,7 @@ export default function Home() {
           </FadeSection>
         </div>
       </section>
+      */}
 
       {/* Problem Section - Empatía y validación */}
       <section className="py-16 sm:py-24 bg-white" aria-labelledby="problema-title">
@@ -347,7 +348,7 @@ export default function Home() {
             <FadeSection delay={100}>
               <div className="relative rounded-2xl overflow-hidden shadow-soft">
                 <Image 
-                  src="/images/familia.png" 
+                  src="/images/familia.jpg" 
                   alt="Personas chilenas de diferentes edades comparando planes de Isapre y ahorrando en salud"
                   className="w-full h-auto object-cover"
                   width={600}
@@ -398,48 +399,137 @@ export default function Home() {
       </section>
 
       {/* How it works - La solución */}
-      <section className="py-16 sm:py-24 bg-bg-light" aria-labelledby="proceso-title">
-        <div className="max-w-6xl mx-auto px-5 sm:px-6">
+      <section className="py-16 sm:py-24 bg-gradient-to-br from-bg-light via-white to-bg-light relative overflow-hidden" aria-labelledby="proceso-title">
+        {/* Decorative shapes */}
+        <div className="absolute top-10 left-0 w-72 h-72 bg-accent/5 rounded-full blur-3xl" aria-hidden="true" />
+        <div className="absolute bottom-10 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl" aria-hidden="true" />
+
+        <div className="max-w-6xl mx-auto px-5 sm:px-6 relative">
           <FadeSection>
-            <header className="text-center mb-12 sm:mb-16">
-              <p className="text-accent font-medium mb-3">Así te ayudamos</p>
+            <header className="text-center mb-14 sm:mb-20">
+              <p className="text-accent font-semibold mb-3 text-sm uppercase tracking-wider">Así te ayudamos</p>
               <h2 id="proceso-title" className="text-2xl sm:text-4xl font-bold text-text-dark mb-4">
-                Evaluar tu Isapre es más fácil de lo que crees
+                En 3 simples pasos, encuentras tu plan ideal
               </h2>
-              <p className="text-text-medium max-w-2xl mx-auto">Solo necesitas 2 minutos para empezar</p>
+              <p className="text-text-medium max-w-xl mx-auto text-lg">Sin trámites, sin letra chica. Solo resultados.</p>
             </header>
           </FadeSection>
 
-          <div className="grid sm:grid-cols-3 gap-6 sm:gap-8">
-            {[
-              { step: '1', title: 'Cuéntanos tu situación', desc: 'Completa un formulario simple con tu información básica' },
-              { step: '2', title: 'Analizamos tus opciones', desc: 'Comparamos planes de todas las Isapres según tu perfil' },
-              { step: '3', title: 'Tú decides', desc: 'Te presentamos las mejores opciones y tú eliges sin presión' },
-            ].map((item, i) => (
-              <FadeSection key={i} delay={i * 100}>
-                <article className="relative">
-                  {/* Connector line - hidden on mobile, shown on tablet+ */}
-                  {i < 2 && (
-                    <div className="hidden sm:block absolute top-6 left-[calc(100%+1rem)] w-8 h-0.5 bg-accent/30" aria-hidden="true" />
-                  )}
-                  
-                  <div className="bg-white rounded-2xl p-6 sm:p-8 shadow-soft h-full text-center relative transition-all duration-300 hover:scale-105 hover:shadow-medium">
-                    {/* Step number badge */}
-                    <div className="relative inline-block mb-5">
-                      <div className="w-14 h-14 bg-gradient-to-br from-accent to-accent-dark text-white font-bold text-2xl rounded-2xl flex items-center justify-center shadow-md">
-                        {item.step}
-                      </div>
-                      {/* Small accent dot */}
-                      <div className="absolute -top-1 -right-1 w-4 h-4 bg-accent rounded-full border-2 border-white" />
+          {/* Timeline layout */}
+          <div className="relative">
+            {/* Vertical connector line - desktop */}
+            <div className="hidden sm:block absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-accent/20 via-accent/40 to-accent/20" aria-hidden="true" />
+
+            <div className="space-y-10 sm:space-y-0">
+              {/* Step 1 */}
+              <FadeSection delay={0}>
+                <div className="sm:grid sm:grid-cols-2 sm:gap-12 items-center sm:pb-16">
+                  <div className="sm:text-right sm:pr-8">
+                    <div className="inline-flex items-center gap-3 mb-4">
+                      <span className="w-10 h-10 bg-accent text-white font-bold text-lg rounded-xl flex items-center justify-center shadow-md">1</span>
+                      <h3 className="font-bold text-text-dark text-xl sm:text-2xl">Cuéntanos tu situación</h3>
                     </div>
-                    
-                    <h3 className="font-semibold text-text-dark text-lg mb-2">{item.title}</h3>
-                    <p className="text-text-medium">{item.desc}</p>
+                    <p className="text-text-medium text-base leading-relaxed mb-4">
+                      Completa un formulario rápido con tu información básica: edad, Isapre actual, cargas y presupuesto. No necesitas tener tu contrato a mano.
+                    </p>
+                    <div className="flex sm:justify-end gap-3">
+                      <span className="inline-flex items-center gap-1.5 text-xs font-medium text-accent bg-accent/10 px-3 py-1.5 rounded-full">
+                        <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                        2 minutos
+                      </span>
+                      <span className="inline-flex items-center gap-1.5 text-xs font-medium text-primary bg-primary/10 px-3 py-1.5 rounded-full">
+                        <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg>
+                        100% seguro
+                      </span>
+                    </div>
                   </div>
-                </article>
+                  <div className="hidden sm:flex justify-start pl-8">
+                    <div className="w-48 h-48 bg-gradient-to-br from-accent/10 to-accent/5 rounded-3xl flex items-center justify-center">
+                      <svg className="w-20 h-20 text-accent/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
               </FadeSection>
-            ))}
+
+              {/* Step 2 */}
+              <FadeSection delay={150}>
+                <div className="sm:grid sm:grid-cols-2 sm:gap-12 items-center sm:pb-16">
+                  <div className="hidden sm:flex justify-end pr-8">
+                    <div className="w-48 h-48 bg-gradient-to-br from-primary/10 to-primary/5 rounded-3xl flex items-center justify-center">
+                      <svg className="w-20 h-20 text-primary/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                      </svg>
+                    </div>
+                  </div>
+                  <div className="sm:pl-8">
+                    <div className="inline-flex items-center gap-3 mb-4">
+                      <span className="w-10 h-10 bg-accent text-white font-bold text-lg rounded-xl flex items-center justify-center shadow-md">2</span>
+                      <h3 className="font-bold text-text-dark text-xl sm:text-2xl">Analizamos tus opciones</h3>
+                    </div>
+                    <p className="text-text-medium text-base leading-relaxed mb-4">
+                      Nuestro equipo compara planes de todas las Isapres del mercado según tu perfil. Evaluamos cobertura, precio, red de prestadores y beneficios adicionales.
+                    </p>
+                    <div className="flex gap-3">
+                      <span className="inline-flex items-center gap-1.5 text-xs font-medium text-accent bg-accent/10 px-3 py-1.5 rounded-full">
+                        <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                        Todas las Isapres
+                      </span>
+                      <span className="inline-flex items-center gap-1.5 text-xs font-medium text-primary bg-primary/10 px-3 py-1.5 rounded-full">
+                        <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" /></svg>
+                        Análisis personalizado
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </FadeSection>
+
+              {/* Step 3 */}
+              <FadeSection delay={300}>
+                <div className="sm:grid sm:grid-cols-2 sm:gap-12 items-center">
+                  <div className="sm:text-right sm:pr-8">
+                    <div className="inline-flex items-center gap-3 mb-4">
+                      <span className="w-10 h-10 bg-accent text-white font-bold text-lg rounded-xl flex items-center justify-center shadow-md">3</span>
+                      <h3 className="font-bold text-text-dark text-xl sm:text-2xl">Tú decides, sin presión</h3>
+                    </div>
+                    <p className="text-text-medium text-base leading-relaxed mb-4">
+                      Te presentamos las mejores opciones con números claros. Si te convence, te acompañamos en el cambio. Si no, no pasa nada. Cero compromiso.
+                    </p>
+                    <div className="flex sm:justify-end gap-3">
+                      <span className="inline-flex items-center gap-1.5 text-xs font-medium text-accent bg-accent/10 px-3 py-1.5 rounded-full">
+                        <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" /></svg>
+                        Sin compromiso
+                      </span>
+                      <span className="inline-flex items-center gap-1.5 text-xs font-medium text-primary bg-primary/10 px-3 py-1.5 rounded-full">
+                        <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                        100% gratis
+                      </span>
+                    </div>
+                  </div>
+                  <div className="hidden sm:flex justify-start pl-8">
+                    <div className="w-48 h-48 bg-gradient-to-br from-accent/10 to-accent/5 rounded-3xl flex items-center justify-center">
+                      <svg className="w-20 h-20 text-accent/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </FadeSection>
+            </div>
           </div>
+
+          {/* CTA */}
+          <FadeSection delay={400}>
+            <div className="mt-14 text-center">
+              <a
+                href="#formulario"
+                className="btn-primary inline-block bg-accent hover:bg-accent-dark text-white font-semibold py-4 px-10 rounded-full text-lg transition touch-manipulation"
+              >
+                Empezar ahora — es gratis
+              </a>
+            </div>
+          </FadeSection>
         </div>
       </section>
 
