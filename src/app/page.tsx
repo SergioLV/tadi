@@ -47,10 +47,10 @@ export default function Home() {
           <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start">
             {/* Left: Content */}
             <div className="lg:pt-4">
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-text-dark leading-tight mb-5 sm:mb-6">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-text-dark leading-tight mb-4">
                 Deja de pagar de más por tu <span className="text-accent">plan de salud</span>
               </h1>
-              <p className="text-lg sm:text-xl text-text-medium mb-6 leading-relaxed">
+              <p className="text-lg sm:text-xl text-text-medium mb-5 leading-relaxed">
                 Equipo multidisciplinario experto en <strong className="text-accent">Fonasa e Isapres</strong> con <span className="bg-accent/10 text-accent font-semibold px-2 py-0.5 rounded-md">asesoría 100% gratuita</span>.
               </p>
 
@@ -89,30 +89,8 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* Trust indicators - desktop */}
-              <div className="hidden lg:flex items-center gap-6 pt-4 border-t border-bg-gray">
-                <div className="flex items-center gap-2 text-text-light text-sm">
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-                  </svg>
-                  Datos seguros
-                </div>
-                <div className="flex items-center gap-2 text-text-light text-sm">
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                  </svg>
-                  Expertos en Chile
-                </div>
-                <div className="flex items-center gap-2 text-text-light text-sm">
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-                  </svg>
-                  Planes personalizados
-                </div>
-              </div>
-
               {/* Isapre Carousel - desktop */}
-              <div className="hidden lg:block mt-6">
+              <div className="hidden lg:block mt-4">
                 <IsapreCarousel />
               </div>
             </div>
