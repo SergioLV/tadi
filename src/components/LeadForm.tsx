@@ -232,7 +232,7 @@ export default function LeadForm() {
         </div>
         <div>
           <label htmlFor="isapre" className="block text-sm font-medium text-text-dark mb-1.5">
-            Isapre actual *
+            Cobertura actual *
           </label>
           <select
             id="isapre"
