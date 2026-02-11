@@ -37,7 +37,7 @@ section[id] {
 
 .btn-primary:hover {
   transform: translateY(-1px);
-  box-shadow: 0 6px 20px rgba(22, 163, 74, 0.3);
+  box-shadow: 0 6px 20px rgba(72, 179, 70, 0.3);
 }
 
 .btn-primary:active {

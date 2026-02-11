@@ -42,9 +42,9 @@ export default function Footer() {
         {/* Footer content */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-10">
           <div>
-            <p className="text-xl font-bold mb-3">
-              Elige un <span className="text-accent">Plan</span>
-            </p>
+            <a href="#inicio" className="inline-block mb-3">
+              <img src="/images/eligeunplan/eligeunplan.webp" alt="Elige un Plan" className="h-[47px] w-auto" />
+            </a>
             <p className="text-white/60 text-sm">
               Asesoría gratuita para elegir tu plan de Isapre en Chile.
             </p>

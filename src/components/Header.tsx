@@ -16,8 +16,8 @@ export default function Header() {
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-white shadow-soft' : 'bg-white/80 backdrop-blur-md'}`}>
       <nav className="max-w-6xl mx-auto px-5 sm:px-6" aria-label="Navegación principal">
         <div className="flex justify-between h-16 sm:h-20 items-center">
-          <a href="#inicio" className="text-xl sm:text-2xl font-bold text-text-dark">
-            Elige un <span className="text-primary">Plan</span>
+          <a href="#inicio" className="flex items-center">
+            <img src="/images/eligeunplan/eligeunplan.webp" alt="Elige un Plan" className="h-[47px] sm:h-[57px] w-auto" />
           </a>
 
           <a

@@ -191,7 +191,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="es-CL">
       <head>
         <link rel="canonical" href="https://eligeunplan.cl" />
-        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" href="/images/eligeunplan/favicon.ico" sizes="any" />
+        <link rel="apple-touch-icon" href="/images/eligeunplan/eligeunplan.jpeg" />
         <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
