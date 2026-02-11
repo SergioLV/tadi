@@ -174,13 +174,14 @@ export default function LeadForm() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                 </svg>
               </div>
-              <h3 className="text-2xl font-bold text-text-dark mb-3">¡Muchas gracias!</h3>
+              <h3 className="text-2xl font-bold text-text-dark mb-3">¡Recibimos tu información correctamente!</h3>
               <p className="text-text-medium leading-relaxed mb-2">
-                Recibimos tu información correctamente. Nuestro equipo de asesores en salud ya está revisando tu caso de manera personalizada y confidencial.
+                Nuestro equipo de asesores en salud ya está revisando tu caso de manera personalizada y confidencial. Recuerda que nuestra finalidad es que tengas la mejor cobertura, evites alzas y bajemos costos.
               </p>
               <p className="text-text-medium leading-relaxed mb-6">
                 En breve te contactaremos para ayudarte a encontrar la mejor opción para ti. 💚
               </p>
+              <p className="text-3xl mb-6">💚</p>
               <button
                 onClick={() => setShowPopup(false)}
                 className="bg-accent hover:bg-accent-dark text-white font-semibold py-3 px-8 rounded-full transition touch-manipulation"
