@@ -68,6 +68,8 @@ export default function Footer() {
               <li>Cruz Blanca</li>
               <li>Consalud</li>
               <li>Vida Tres</li>
+              <li>Esencial</li>
+              <li>Nueva Masvida</li>
             </ul>
           </div>
 

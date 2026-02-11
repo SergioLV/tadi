@@ -93,3 +93,36 @@ section[id] {
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
 }
+
+/* Confetti / Serpentinas animation */
+@keyframes confetti-fall {
+  0% {
+    transform: translateY(-10px) rotate(0deg);
+    opacity: 1;
+  }
+  85% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(1080deg);
+    opacity: 0;
+  }
+}
+
+@keyframes confetti-sway {
+  0%, 100% {
+    margin-left: 0;
+  }
+  25% {
+    margin-left: 40px;
+  }
+  75% {
+    margin-left: -40px;
+  }
+}
+
+.confetti-piece {
+  position: absolute;
+  top: -30px;
+  animation: confetti-fall 2s ease-in forwards, confetti-sway 0.8s ease-in-out infinite;
+}

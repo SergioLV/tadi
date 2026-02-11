@@ -38,6 +38,7 @@ export default function LeadForm() {
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [showPopup, setShowPopup] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
 
   const validateForm = () => {
@@ -97,6 +98,7 @@ export default function LeadForm() {
       console.log('Lead submitted successfully:', result);
       
       setSubmitted(true);
+      setShowPopup(true);
     } catch (error) {
       console.error('Error submitting lead:', error);
       setSubmitError('Hubo un problema al enviar tu solicitud. Por favor intenta nuevamente.');
@@ -114,7 +116,7 @@ export default function LeadForm() {
     }
   };
 
-  if (submitted) {
+  if (submitted && !showPopup) {
     return (
       <div className="text-center py-8">
         <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -129,6 +131,67 @@ export default function LeadForm() {
   }
 
   return (
+    <>
+      {/* Success Popup Modal */}
+      {showPopup && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4" role="dialog" aria-modal="true">
+          <div className="absolute inset-0 bg-black/50 backdrop-blur-sm" onClick={() => setShowPopup(false)} />
+          
+          {/* Confetti / Serpentinas */}
+          <div className="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
+            {Array.from({ length: 80 }).map((_, i) => (
+              <div
+                key={i}
+                className="confetti-piece"
+                style={{
+                  left: `${Math.random() * 100}%`,
+                  animationDelay: `${Math.random() * 0.15}s`,
+                  animationDuration: `${1.2 + Math.random() * 1.3}s`,
+                  backgroundColor: ['#059669', '#10B981', '#34D399', '#0F172A', '#3B82F6', '#F59E0B', '#EC4899', '#8B5CF6', '#EF4444', '#06B6D4'][i % 10],
+                  width: `${8 + Math.random() * 10}px`,
+                  height: `${18 + Math.random() * 22}px`,
+                  borderRadius: `${Math.random() > 0.5 ? '2px' : '50%'}`,
+                  transform: `rotate(${Math.random() * 360}deg)`,
+                  opacity: 0.95,
+                }}
+              />
+            ))}
+          </div>
+
+          <div className="relative bg-white rounded-3xl p-8 sm:p-10 max-w-md w-full shadow-xl">
+            <button
+              onClick={() => setShowPopup(false)}
+              className="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-full bg-bg-light hover:bg-bg-gray transition text-text-light"
+              aria-label="Cerrar"
+            >
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+            <div className="text-center">
+              <div className="w-20 h-20 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-5">
+                <svg className="w-10 h-10 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                </svg>
+              </div>
+              <h3 className="text-2xl font-bold text-text-dark mb-3">¡Muchas gracias!</h3>
+              <p className="text-text-medium leading-relaxed mb-2">
+                Recibimos tu información correctamente. Nuestro equipo multidisciplinario de expertos en salud revisará tu caso de forma personalizada.
+              </p>
+              <p className="text-text-medium leading-relaxed mb-6">
+                Te contactaremos lo antes posible para ayudarte a encontrar el mejor plan para ti y tu familia. 💚
+              </p>
+              <button
+                onClick={() => setShowPopup(false)}
+                className="bg-accent hover:bg-accent-dark text-white font-semibold py-3 px-8 rounded-full transition touch-manipulation"
+              >
+                Entendido
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
     <form onSubmit={handleSubmit} className="space-y-4" noValidate>
       <div className="grid sm:grid-cols-2 gap-4">
         <div>
@@ -344,5 +407,7 @@ export default function LeadForm() {
         Sin compromiso. Sin spam. Sin llamadas incómodas.
       </p>
     </form>
+
+    </>
   );
 }

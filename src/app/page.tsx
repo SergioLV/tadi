@@ -376,8 +376,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* How it works - La solución */}
-      <section className="py-16 sm:py-24 bg-gradient-to-br from-bg-light via-white to-bg-light relative overflow-hidden" aria-labelledby="proceso-title">
+      {/* How it works - La solución - COMENTADO */}
+      {false && (<section className="py-16 sm:py-24 bg-gradient-to-br from-bg-light via-white to-bg-light relative overflow-hidden" aria-labelledby="proceso-title">
         {/* Decorative shapes */}
         <div className="absolute top-10 left-0 w-72 h-72 bg-accent/5 rounded-full blur-3xl" aria-hidden="true" />
         <div className="absolute bottom-10 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl" aria-hidden="true" />
@@ -509,7 +509,7 @@ export default function Home() {
             </div>
           </FadeSection>
         </div>
-      </section>
+      </section>)}
 
       {/* Isapres we compare */}
       <section className="py-16 sm:py-24 bg-bg-light" aria-labelledby="isapres-title">
@@ -525,7 +525,7 @@ export default function Home() {
           </FadeSection>
 
           <FadeSection delay={100}>
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 sm:gap-6">
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-7 gap-4 sm:gap-6">
               {[
                 { name: 'Banmédica', logo: '/logos/banmedica.png' },
                 { name: 'Colmena', logo: '/logos/colmena.png' },
@@ -533,6 +533,7 @@ export default function Home() {
                 { name: 'Consalud', logo: '/logos/consalud.png' },
                 { name: 'Vida Tres', logo: '/logos/vida_tres.png' },
                 { name: 'Nueva Masvida', logo: '/logos/nueva_mas_vida.png' },
+                { name: 'Esencial', logo: '/logos/esencial.svg' },
               ].map((isapre) => (
                 <div
                   key={isapre.name}
