@@ -10,7 +10,7 @@ const regiones = [
 
 const isapres = [
   'Banmédica', 'Colmena', 'Cruz Blanca', 'Consalud', 'Vida Tres', 
-  'Nueva Masvida', 'Fonasa', 'Otra', 'No tengo'
+  'Nueva Masvida', 'Esencial', 'Fonasa', 'Otra', 'No tengo'
 ];
 
 const motivos = [
@@ -176,10 +176,10 @@ export default function LeadForm() {
               </div>
               <h3 className="text-2xl font-bold text-text-dark mb-3">¡Muchas gracias!</h3>
               <p className="text-text-medium leading-relaxed mb-2">
-                Recibimos tu información correctamente. Nuestro equipo multidisciplinario de expertos en salud revisará tu caso de forma personalizada.
+                Recibimos tu información correctamente. Nuestro equipo de asesores en salud ya está revisando tu caso de manera personalizada y confidencial.
               </p>
               <p className="text-text-medium leading-relaxed mb-6">
-                Te contactaremos lo antes posible para ayudarte a encontrar el mejor plan para ti y tu familia. 💚
+                En breve te contactaremos para ayudarte a encontrar la mejor opción para ti. 💚
               </p>
               <button
                 onClick={() => setShowPopup(false)}
