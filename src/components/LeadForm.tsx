@@ -197,7 +197,7 @@ export default function LeadForm() {
       <div className="grid sm:grid-cols-2 gap-4">
         <div>
           <label htmlFor="nombre" className="block text-sm font-medium text-text-dark mb-1.5">
-            Nombre completo *
+            Nombre *
           </label>
           <input
             type="text"

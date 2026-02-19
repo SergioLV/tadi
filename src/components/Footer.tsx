@@ -46,7 +46,7 @@ export default function Footer() {
               <img src="/images/eligeunplan/eligeunplan.webp" alt="Elige un Plan" className="h-[47px] w-auto" />
             </a>
             <p className="text-white/60 text-sm">
-              Asesoría gratuita para elegir tu plan de Isapre en Chile.
+              Asesoría gratuita para elegir la mejor cobertura, beneficios y bajar costos en tu plan de Isapre.
             </p>
           </div>
 
