@@ -191,6 +191,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="es-CL">
       <head>
+        {/* Google Ads (gtag.js) */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17962685155" />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','AW-17962685155');`,
+          }}
+        />
         <link rel="canonical" href="https://eligeunplan.cl" />
         <link rel="icon" href="/images/eligeunplan/favicon.ico" sizes="any" />
         <link rel="apple-touch-icon" href="/images/eligeunplan/eligeunplan.jpeg" />
