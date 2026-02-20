@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { API } from '@/config/api';
 
 const regiones = [
   'Arica y Parinacota', 'Tarapacá', 'Antofagasta', 'Atacama', 'Coquimbo',
@@ -82,7 +83,7 @@ export default function LeadForm() {
     };
     
     try {
-      const response = await fetch('https://6gbja909qf.execute-api.us-east-1.amazonaws.com/prod/leads', {
+      const response = await fetch(API.leads, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
