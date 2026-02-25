@@ -395,7 +395,7 @@ export default function LeadForm() {
             Enviando...
           </span>
         ) : (
-          'Evaluar mi Isapre gratis'
+          'Quiero que me asesoren gratis'
         )}
       </button>
 

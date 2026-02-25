@@ -51,17 +51,17 @@ export default function Home() {
                 Deja de pagar de más por tu <span className="text-accent">plan de salud</span>
               </h1>
               <p className="text-lg sm:text-xl text-text-medium mb-5 leading-relaxed">
-                Equipo multidisciplinario experto en <strong className="text-accent">Fonasa e Isapres</strong> con <span className="bg-accent/10 text-accent font-semibold px-2 py-0.5 rounded-md">asesoría 100% gratuita</span>.
+                Equipo experto en <strong className="text-accent">Fonasa e Isapres</strong>. Te ayudamos a escoger el mejor plan del mercado, con una asesoría rápida, <span className="bg-accent/10 text-accent font-semibold px-2 py-0.5 rounded-md">100% gratuita</span> y confidencial. Súmate a las más de <strong className="text-text-dark">1.200 personas asesoradas</strong>.
               </p>
 
               {/* Trust bullets */}
               <ul className="space-y-3 mb-6">
                 {[
-                  'Accede a mejores coberturas',
-                  'Evita alzas innecesarias',
-                  'Copagos fijos y beneficios gratuitos',
+                  'Mejora tu cobertura sin pagar de más',
+                  'Evita alzas injustificadas',
+                  'Copagos claros y beneficios reales',
                   'Planes individuales y familiares',
-                  'Orientación y apoyo permanente',
+                  'Acompañamiento permanente',
                 ].map((item, i) => (
                   <li key={i} className="flex items-center gap-3">
                     <span className="w-6 h-6 bg-accent/10 rounded-full flex items-center justify-center flex-shrink-0">
@@ -568,7 +568,7 @@ export default function Home() {
               href="#formulario"
               className="btn-primary inline-block bg-primary hover:bg-primary-dark text-white font-semibold py-4 px-10 rounded-full text-lg transition touch-manipulation"
             >
-              Evaluar mi Isapre gratis
+              Quiero que me asesoren gratis
             </a>
             <p className="text-white/50 text-sm mt-4">Sin compromiso • Sin spam • Sin llamadas incómodas</p>
           </FadeSection>
