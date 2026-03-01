@@ -72,7 +72,26 @@ export default function LeadForm() {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+    
+    if (name === 'telefono') {
+      // Auto-format Chilean phone: only digits, max 11 (56 9 XXXX XXXX)
+      const digits = value.replace(/\D/g, '');
+      let formatted = digits;
+      if (digits.length > 0) {
+        if (!digits.startsWith('56')) {
+          formatted = '56' + digits;
+        }
+        // Format: +56 9 XXXX XXXX
+        const d = formatted.slice(0, 11);
+        if (d.length <= 2) formatted = '+' + d;
+        else if (d.length <= 3) formatted = '+' + d.slice(0, 2) + ' ' + d.slice(2);
+        else if (d.length <= 7) formatted = '+' + d.slice(0, 2) + ' ' + d.slice(2, 3) + ' ' + d.slice(3);
+        else formatted = '+' + d.slice(0, 2) + ' ' + d.slice(2, 3) + ' ' + d.slice(3, 7) + ' ' + d.slice(7);
+      }
+      setFormData({ ...formData, telefono: formatted });
+    } else {
+      setFormData({ ...formData, [name]: value });
+    }
     if (errors[name]) setErrors({ ...errors, [name]: '' });
   };
 

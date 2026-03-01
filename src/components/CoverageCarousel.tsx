@@ -1,35 +1,48 @@
 'use client';
 
 import React, { useRef, useState, useCallback, useEffect } from 'react';
+import Image from 'next/image';
 
-const coverages: { title: string; image?: string }[] = [
-  { title: 'Garantías Explícitas de Salud: GES', image: '/images/section2/ges.jpg' },
-  { title: 'Cobertura adicional para enfermedades catastróficas: CAEC', image: '/images/section2/cuidado.jpg' },
-  { title: 'Exámenes preventivos gratuitos', image: '/images/section2/examenes.jpg' },
-  { title: 'Cobertura en urgencias simples y complejas', image: '/images/section2/urgencia.jpg' },
-  { title: 'Cobertura dental', image: '/images/section2/dentista.jpg' },
-  { title: 'Atención kinesiológica a domicilio gratuita', image: '/images/section2/kinesiologo.jpeg' },
-  { title: 'Atención terapeuta ocupacional y fonoaudióloga gratuita', image: '/images/section2/terapeuta_ocupacional.jpg' },
+const coverages = [
+  { title: 'Garantías Explícitas de Salud: GES', image: '/images/section2/ges.jpg', icon: '🛡️' },
+  { title: 'Cobertura adicional para enfermedades catastróficas: CAEC', image: '/images/section2/cuidado.jpg', icon: '🏥' },
+  { title: 'Exámenes preventivos gratuitos', image: '/images/section2/examenes.jpg', icon: '🔬' },
+  { title: 'Cobertura en urgencias simples y complejas', image: '/images/section2/urgencia.jpg', icon: '🚑' },
+  { title: 'Cobertura dental', image: '/images/section2/dentista.jpg', icon: '🦷' },
+  { title: 'Atención kinesiológica a domicilio gratuita', image: '/images/section2/kinesiologo.jpeg', icon: '💪' },
+  { title: 'Atención terapeuta ocupacional y fonoaudióloga gratuita', image: '/images/section2/terapeuta_ocupacional.jpg', icon: '🧠' },
 ];
 
-function CoverageCard({ title, image }: { title: string; image?: string }) {
+function CoverageCard({ title, image, icon }: { title: string; image: string; icon: string }) {
   return (
-    <div className="flex-shrink-0 w-[300px] sm:w-[340px] group rounded-2xl overflow-hidden shadow-soft transition-all duration-300 hover:scale-105 hover:shadow-medium cursor-pointer flex flex-col select-none">
-      <div className="relative h-52 sm:h-60 bg-gradient-to-br from-bg-light to-bg-gray overflow-hidden">
-        {image ? (
-          <img src={image} alt={title} className="w-full h-full object-cover pointer-events-none" loading="lazy" draggable={false} />
-        ) : (
-          <div className="absolute inset-0 flex items-center justify-center">
-            <div className="w-24 h-24 bg-white/30 rounded-full flex items-center justify-center">
-              <svg className="w-12 h-12 text-text-light/40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-              </svg>
-            </div>
-          </div>
-        )}
+    <div className="flex-shrink-0 w-[280px] sm:w-[320px] group rounded-2xl overflow-hidden cursor-pointer select-none relative">
+      {/* Image with gradient overlay */}
+      <div className="relative h-56 sm:h-64 overflow-hidden">
+        <Image
+          src={image}
+          alt={title}
+          width={640}
+          height={480}
+          className="w-full h-full object-cover pointer-events-none transition-transform duration-500 group-hover:scale-110"
+          loading="lazy"
+          sizes="320px"
+          quality={75}
+          draggable={false}
+        />
+        {/* Dark gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
+        {/* Icon badge */}
+        <div className="absolute top-4 left-4 w-10 h-10 bg-white/20 backdrop-blur-md rounded-xl flex items-center justify-center text-lg border border-white/10">
+          {icon}
+        </div>
+
+        {/* Accent line */}
+        <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-accent to-emerald-400 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
       </div>
-      <div className="bg-bg-light p-5 flex-1 flex items-center">
-        <h3 className="text-text-dark font-semibold text-base leading-snug">{title}</h3>
+
+      {/* Title area - glassmorphism */}
+      <div className="absolute bottom-0 left-0 right-0 p-5">
+        <h3 className="text-white font-semibold text-sm sm:text-base leading-snug drop-shadow-md">{title}</h3>
       </div>
     </div>
   );
@@ -84,17 +97,15 @@ export default function CoverageCarousel() {
     resumeTimer.current = setTimeout(() => setIsPaused(false), 2000);
   }, []);
 
-  // Auto-scroll with requestAnimationFrame
   useEffect(() => {
     const el = containerRef.current;
     if (!el) return;
     let animId: number;
-    const speed = 0.8; // px per frame
+    const speed = 0.8;
 
     const step = () => {
       if (!isPaused && !isDragging) {
         el.scrollLeft += speed;
-        // Reset to start when halfway (seamless loop)
         const halfScroll = el.scrollWidth / 2;
         if (el.scrollLeft >= halfScroll) {
           el.scrollLeft -= halfScroll;
@@ -116,7 +127,7 @@ export default function CoverageCarousel() {
     <div className="w-full overflow-hidden">
       <div
         ref={containerRef}
-        className={`flex gap-5 overflow-x-scroll scrollbar-hide ${isDragging ? 'cursor-grabbing' : 'cursor-grab'}`}
+        className={`flex gap-4 sm:gap-5 overflow-x-scroll scrollbar-hide ${isDragging ? 'cursor-grabbing' : 'cursor-grab'}`}
         style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
         onMouseDown={handleMouseDown}
         onMouseMove={handleMouseMove}
@@ -126,9 +137,8 @@ export default function CoverageCarousel() {
         onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
       >
-        {/* Two copies for seamless loop */}
         {[...coverages, ...coverages].map((item, i) => (
-          <CoverageCard key={i} title={item.title} image={item.image} />
+          <CoverageCard key={i} title={item.title} image={item.image} icon={item.icon} />
         ))}
       </div>
     </div>
