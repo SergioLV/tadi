@@ -2,6 +2,7 @@ import FadeSection from '@/components/FadeSection';
 import LeadForm from '@/components/LeadForm';
 import IsapreCarousel from '@/components/IsapreCarousel';
 import CoverageCarousel from '@/components/CoverageCarousel';
+import TestimonialsCarousel from '@/components/TestimonialsCarousel';
 import Image from 'next/image';
 
 export default function Home() {
@@ -47,10 +48,10 @@ export default function Home() {
           <div className="grid lg:grid-cols-2 gap-5 lg:gap-16 items-start">
             {/* Left: Content */}
             <div className="lg:pt-4 min-w-0">
-              <h1 className="text-2xl sm:text-4xl lg:text-6xl font-bold text-text-dark leading-tight mb-4 sm:mb-5 break-words">
-                Deja de pagar de más por tu <span className="text-accent">plan de salud</span>
+              <h1 className="text-[1.6rem] sm:text-4xl lg:text-6xl font-bold text-text-dark leading-[1.2] sm:leading-tight mb-4 sm:mb-5 text-left">
+                Deja de pagar de más por tu<br className="sm:hidden" /> <span className="text-accent">plan de salud</span>
               </h1>
-              <p className="text-sm sm:text-lg lg:text-xl text-text-medium mb-5 sm:mb-6 leading-relaxed break-words">
+              <p className="text-sm sm:text-lg lg:text-xl text-text-medium mb-5 sm:mb-6 leading-relaxed break-words text-justify lg:text-left">
                 Equipo experto en <strong className="text-accent">Fonasa e Isapres</strong>. Te ayudamos a escoger el mejor plan del mercado, con una asesoría rápida, <span className="bg-accent/10 text-accent font-semibold px-1.5 sm:px-2 py-0.5 rounded-md">100% gratuita</span> y confidencial. Súmate a las más de <strong className="text-text-dark">1.200 personas asesoradas</strong>.
               </p>
 
@@ -110,6 +111,40 @@ export default function Home() {
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Testimonios */}
+      <section className="py-12 sm:py-20 bg-gradient-to-br from-bg-light via-white to-accent/5 relative overflow-hidden" aria-labelledby="testimonios-title">
+        <div className="absolute top-0 right-0 w-72 h-72 bg-accent/5 rounded-full blur-3xl" aria-hidden="true" />
+        <div className="absolute bottom-0 left-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl" aria-hidden="true" />
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 relative">
+          <FadeSection>
+            <div className="text-center mb-8 sm:mb-12">
+              <p className="text-accent font-semibold mb-2">⭐ Casos reales</p>
+              <h2 id="testimonios-title" className="text-2xl sm:text-3xl lg:text-4xl font-bold text-text-dark mb-3">
+                Lo que dicen quienes ya se asesoraron
+              </h2>
+              <p className="text-text-medium max-w-xl mx-auto text-sm sm:text-base">
+                Más de 1.200 personas han confiado en nosotros para mejorar su plan de salud
+              </p>
+            </div>
+          </FadeSection>
+
+          <FadeSection delay={150}>
+            <TestimonialsCarousel />
+          </FadeSection>
+
+          <FadeSection delay={300}>
+            <div className="mt-10 sm:mt-14 text-center">
+              <a
+                href="#formulario"
+                className="btn-primary inline-block bg-accent hover:bg-accent-dark text-white font-semibold py-3.5 sm:py-4 px-8 sm:px-10 rounded-full text-base sm:text-lg transition touch-manipulation"
+              >
+                Quiero que me asesoren gratis
+              </a>
+            </div>
+          </FadeSection>
         </div>
       </section>
 
@@ -303,73 +338,6 @@ export default function Home() {
         </div>
       </section>
       */}
-
-      {/* Problem Section - Empatía y validación */}
-      <section className="py-16 sm:py-24 bg-white" aria-labelledby="problema-title">
-        <div className="max-w-6xl mx-auto px-5 sm:px-6">
-          <FadeSection>
-            <header className="text-center mb-12">
-              <p className="text-accent font-medium mb-3">¿Te sientes identificado?</p>
-              <h2 id="problema-title" className="text-2xl sm:text-4xl font-bold text-text-dark mb-6">
-                Si llegaste aquí, probablemente algo no está bien con tu Isapre
-              </h2>
-            </header>
-          </FadeSection>
-
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center mb-12">
-            {/* Left: Image */}
-            <FadeSection delay={100}>
-              <div className="relative rounded-2xl overflow-hidden shadow-soft">
-                <Image 
-                  src="/images/familia.jpg" 
-                  alt="Personas chilenas de diferentes edades comparando planes de Isapre y ahorrando en salud"
-                  className="w-full h-auto object-cover"
-                  width={600}
-                  height={400}
-                  priority={false}
-                  quality={85}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent pointer-events-none" />
-              </div>
-            </FadeSection>
-
-            {/* Right: Questions */}
-            <div className="space-y-4">
-              {[
-                '¿Sientes que pagas demasiado cada mes?',
-                '¿No entiendes bien qué cubre tu plan?',
-                '¿Tienes coberturas que nunca usas?',
-                '¿Te da miedo cambiarte porque no sabes por dónde empezar?',
-              ].map((question, i) => (
-                <FadeSection key={i} delay={200 + i * 100}>
-                  <div className="flex items-center gap-4 bg-bg-light rounded-xl p-5 hover:bg-bg-gray/50 transition">
-                    <div className="w-8 h-8 bg-accent/10 rounded-full flex items-center justify-center flex-shrink-0">
-                      <svg className="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                      </svg>
-                    </div>
-                    <p className="text-text-dark font-medium text-lg">{question}</p>
-                  </div>
-                </FadeSection>
-              ))}
-            </div>
-          </div>
-
-          <FadeSection delay={650}>
-            <div className="text-center bg-bg-light rounded-2xl p-8">
-              <p className="text-text-medium text-lg mb-6">
-                <strong className="text-text-dark">No estás solo.</strong> Miles de chilenos pagan más de lo necesario por su Isapre. La buena noticia es que tiene solución.
-              </p>
-              <a
-                href="#formulario"
-                className="btn-primary inline-block bg-accent hover:bg-accent-dark text-white font-semibold py-4 px-10 rounded-full text-lg transition touch-manipulation"
-              >
-                Quiero saber si estoy pagando de más
-              </a>
-            </div>
-          </FadeSection>
-        </div>
-      </section>
 
       {/* How it works - La solución - COMENTADO */}
       {false && (<section className="py-16 sm:py-24 bg-gradient-to-br from-bg-light via-white to-bg-light relative overflow-hidden" aria-labelledby="proceso-title">
