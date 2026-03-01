@@ -38,24 +38,24 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(testimonialsSchema) }}
       />
       {/* HERO with Form */}
-      <section id="inicio" className="pt-24 sm:pt-28 pb-6 sm:pb-12 bg-gradient-to-br from-bg-light via-white to-bg-light relative overflow-hidden">
+      <section id="inicio" className="pt-20 sm:pt-28 pb-4 sm:pb-12 bg-gradient-to-br from-bg-light via-white to-bg-light relative">
         {/* Subtle decorative shapes */}
-        <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" aria-hidden="true" />
-        <div className="absolute bottom-0 left-0 w-80 h-80 bg-accent/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2" aria-hidden="true" />
+        <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none" aria-hidden="true" />
+        <div className="absolute bottom-0 left-0 w-80 h-80 bg-accent/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2 pointer-events-none" aria-hidden="true" />
         
-        <div className="max-w-6xl mx-auto px-5 sm:px-6 relative">
-          <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 relative">
+          <div className="grid lg:grid-cols-2 gap-5 lg:gap-16 items-start">
             {/* Left: Content */}
-            <div className="lg:pt-4">
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-text-dark leading-tight mb-4">
+            <div className="lg:pt-4 min-w-0">
+              <h1 className="text-2xl sm:text-4xl lg:text-6xl font-bold text-text-dark leading-tight mb-4 sm:mb-5 break-words">
                 Deja de pagar de más por tu <span className="text-accent">plan de salud</span>
               </h1>
-              <p className="text-lg sm:text-xl text-text-medium mb-5 leading-relaxed">
-                Equipo experto en <strong className="text-accent">Fonasa e Isapres</strong>. Te ayudamos a escoger el mejor plan del mercado, con una asesoría rápida, <span className="bg-accent/10 text-accent font-semibold px-2 py-0.5 rounded-md">100% gratuita</span> y confidencial. Súmate a las más de <strong className="text-text-dark">1.200 personas asesoradas</strong>.
+              <p className="text-sm sm:text-lg lg:text-xl text-text-medium mb-5 sm:mb-6 leading-relaxed break-words">
+                Equipo experto en <strong className="text-accent">Fonasa e Isapres</strong>. Te ayudamos a escoger el mejor plan del mercado, con una asesoría rápida, <span className="bg-accent/10 text-accent font-semibold px-1.5 sm:px-2 py-0.5 rounded-md">100% gratuita</span> y confidencial. Súmate a las más de <strong className="text-text-dark">1.200 personas asesoradas</strong>.
               </p>
 
               {/* Trust bullets */}
-              <ul className="space-y-3 mb-6">
+              <ul className="space-y-2.5 sm:space-y-3 mb-5 sm:mb-6">
                 {[
                   'Mejora tu cobertura sin pagar de más',
                   'Evita alzas injustificadas',
@@ -63,19 +63,19 @@ export default function Home() {
                   'Planes individuales y familiares',
                   'Acompañamiento permanente',
                 ].map((item, i) => (
-                  <li key={i} className="flex items-center gap-3">
-                    <span className="w-6 h-6 bg-accent/10 rounded-full flex items-center justify-center flex-shrink-0">
-                      <svg className="w-4 h-4 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <li key={i} className="flex items-center gap-2 sm:gap-3">
+                    <span className="w-5 h-5 sm:w-6 sm:h-6 bg-accent/10 rounded-full flex items-center justify-center flex-shrink-0">
+                      <svg className="w-3 h-3 sm:w-4 sm:h-4 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
                       </svg>
                     </span>
-                    <span className="text-text-dark font-medium">{item}</span>
+                    <span className="text-text-dark font-medium text-sm sm:text-base">{item}</span>
                   </li>
                 ))}
               </ul>
 
-              {/* Convenios */}
-              <div className="mb-6">
+              {/* Convenios - hidden on mobile, shown on sm+ */}
+              <div className="hidden sm:block mb-6">
                 <p className="text-text-light text-sm font-medium mb-2">Convenios incluidos:</p>
                 <div className="flex flex-wrap gap-2">
                   {['Salud mental', 'Dental', 'Kinesiológico', 'Terapeuta ocupacional', 'Telemedicina 24/7', 'Cobertura maternal'].map((convenio) => (
@@ -89,32 +89,27 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* Isapre Carousel - desktop */}
-              <div className="hidden lg:block mt-4">
-                <IsapreCarousel />
-              </div>
             </div>
 
             {/* Right: Form */}
-            <div id="formulario" className="lg:pt-4">
-              <div className="bg-white rounded-2xl sm:rounded-3xl p-6 sm:p-8 shadow-medium border border-bg-gray/50">
-                <div className="text-center mb-6">
-                  <h2 className="text-xl sm:text-2xl font-bold text-text-dark mb-2">
+            <div id="formulario" className="lg:pt-4 min-w-0">
+              <div className="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-8 shadow-medium border border-bg-gray/50">
+                <div className="text-center mb-3 sm:mb-6">
+                  <h2 className="text-lg sm:text-2xl font-bold text-text-dark mb-1">
                     Evalúa tu Isapre <span className="text-accent">gratis</span>
                   </h2>
-                  <p className="text-text-medium text-sm">
+                  <p className="text-text-medium text-xs sm:text-sm">
                     Completa el formulario y te contactamos lo antes posible.
                   </p>
                 </div>
                 <LeadForm />
               </div>
+              {/* Isapre Carousel - below form */}
+              <div className="mt-4 sm:mt-6">
+                <IsapreCarousel />
+              </div>
             </div>
           </div>
-        </div>
-
-        {/* Isapre Carousel - mobile only */}
-        <div className="mt-8 sm:mt-12 lg:hidden">
-          <IsapreCarousel />
         </div>
       </section>
 

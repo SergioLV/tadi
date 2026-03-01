@@ -14,8 +14,8 @@ const isapres = [
 
 export default function IsapreCarousel() {
   return (
-    <div className="w-full overflow-hidden py-6">
-      <p className="text-center text-text-light text-sm mb-4">Comparamos todas las Isapres</p>
+    <div className="w-full overflow-hidden py-3 sm:py-6">
+      <p className="text-center text-text-light text-xs sm:text-sm mb-3 sm:mb-4">Comparamos todas las Isapres</p>
       <div className="relative">
         <div className="flex animate-scroll-seamless">
           {/* Primera copia */}
