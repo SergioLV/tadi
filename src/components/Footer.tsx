@@ -63,6 +63,7 @@ export default function Footer() {
           <div>
             <h3 className="font-semibold mb-3 text-sm">Isapres</h3>
             <ul className="space-y-2 text-white/60 text-sm">
+              <li>Fonasa</li>
               <li>Banmédica</li>
               <li>Colmena</li>
               <li>Cruz Blanca</li>

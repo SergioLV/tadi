@@ -3,6 +3,7 @@
 import Image from 'next/image';
 
 const isapres = [
+  { name: 'Fonasa', logo: '/logos/fonasa.png' },
   { name: 'Banmédica', logo: '/logos/banmedica.png' },
   { name: 'Colmena', logo: '/logos/colmena.png' },
   { name: 'Consalud', logo: '/logos/consalud.png' },

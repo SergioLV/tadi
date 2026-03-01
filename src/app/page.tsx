@@ -102,7 +102,7 @@ export default function Home() {
                   <LiveActivityIndicator />
                   <div className="text-center mb-3 sm:mb-6">
                     <h2 className="text-lg sm:text-2xl font-bold text-text-dark mb-1">
-                      Evalúa tu Isapre <span className="text-accent">gratis</span>
+                      Evalúa tu cobertura <span className="text-accent">gratis</span>
                     </h2>
                     <p className="text-text-medium text-xs sm:text-sm">
                       Completa el formulario y te contactamos lo antes posible.
@@ -553,8 +553,9 @@ export default function Home() {
           </FadeSection>
 
           <FadeSection delay={100}>
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-7 gap-4 sm:gap-6">
+            <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-4 sm:gap-6">
               {[
+                { name: 'Fonasa', logo: '/logos/fonasa.png' },
                 { name: 'Banmédica', logo: '/logos/banmedica.png' },
                 { name: 'Colmena', logo: '/logos/colmena.png' },
                 { name: 'Cruz Blanca', logo: '/logos/cruz_blanca.webp' },
