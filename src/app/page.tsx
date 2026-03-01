@@ -2,7 +2,9 @@ import FadeSection from '@/components/FadeSection';
 import LeadForm from '@/components/LeadForm';
 import IsapreCarousel from '@/components/IsapreCarousel';
 import CoverageCarousel from '@/components/CoverageCarousel';
+import AnimatedCounter from '@/components/AnimatedCounter';
 import TestimonialsCarousel from '@/components/TestimonialsCarousel';
+import LiveActivityIndicator from '@/components/LiveActivityIndicator';
 import Image from 'next/image';
 
 export default function Home() {
@@ -52,7 +54,7 @@ export default function Home() {
                 Deja de pagar de más por tu<br className="sm:hidden" /> <span className="text-accent">plan de salud</span>
               </h1>
               <p className="text-sm sm:text-lg lg:text-xl text-text-medium mb-5 sm:mb-6 leading-relaxed break-words text-justify lg:text-left">
-                Equipo experto en <strong className="text-accent">Fonasa e Isapres</strong>. Te ayudamos a escoger el mejor plan del mercado, con una asesoría rápida, <span className="bg-accent/10 text-accent font-semibold px-1.5 sm:px-2 py-0.5 rounded-md">100% gratuita</span> y confidencial. Súmate a las más de <strong className="text-text-dark">1.200 personas asesoradas</strong>.
+                Equipo experto en <strong className="text-accent">Fonasa e Isapres</strong>. Te ayudamos a escoger el mejor plan del mercado, con una asesoría rápida, <span className="bg-accent/10 text-accent font-semibold px-1.5 sm:px-2 py-0.5 rounded-md">100% gratuita</span> y confidencial. Súmate a las más de <strong className="text-text-dark"><AnimatedCounter target={1200} /> personas asesoradas</strong>.
               </p>
 
               {/* Trust bullets */}
@@ -94,16 +96,32 @@ export default function Home() {
 
             {/* Right: Form */}
             <div id="formulario" className="lg:pt-4 min-w-0">
-              <div className="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-8 shadow-medium border border-bg-gray/50">
-                <div className="text-center mb-3 sm:mb-6">
-                  <h2 className="text-lg sm:text-2xl font-bold text-text-dark mb-1">
-                    Evalúa tu Isapre <span className="text-accent">gratis</span>
-                  </h2>
-                  <p className="text-text-medium text-xs sm:text-sm">
-                    Completa el formulario y te contactamos lo antes posible.
-                  </p>
+              <div className="form-card-glow relative rounded-2xl sm:rounded-3xl p-[2px]">
+                <div className="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-8 shadow-medium relative">
+                  {/* Live activity indicator */}
+                  <LiveActivityIndicator />
+                  <div className="text-center mb-3 sm:mb-6">
+                    <h2 className="text-lg sm:text-2xl font-bold text-text-dark mb-1">
+                      Evalúa tu Isapre <span className="text-accent">gratis</span>
+                    </h2>
+                    <p className="text-text-medium text-xs sm:text-sm">
+                      Completa el formulario y te contactamos lo antes posible.
+                    </p>
+                  </div>
+                  <LeadForm />
+                  {/* Trust badges */}
+                  <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 mt-4 pt-4 border-t border-bg-gray/50">
+                    <span className="flex items-center gap-1.5 text-[11px] sm:text-xs text-text-light">
+                      <span>🔒</span> Datos protegidos
+                    </span>
+                    <span className="flex items-center gap-1.5 text-[11px] sm:text-xs text-text-light">
+                      <span>⚡</span> Respuesta en 24h
+                    </span>
+                    <span className="flex items-center gap-1.5 text-[11px] sm:text-xs text-text-light">
+                      <span>💯</span> 100% gratis
+                    </span>
+                  </div>
                 </div>
-                <LeadForm />
               </div>
               {/* Isapre Carousel - below form */}
               <div className="mt-4 sm:mt-6">
@@ -114,50 +132,97 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Testimonios */}
+      {/* Testimonios - 2 column layout */}
       <section className="py-12 sm:py-20 bg-gradient-to-br from-bg-light via-white to-accent/5 relative overflow-hidden" aria-labelledby="testimonios-title">
         <div className="absolute top-0 right-0 w-72 h-72 bg-accent/5 rounded-full blur-3xl" aria-hidden="true" />
         <div className="absolute bottom-0 left-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl" aria-hidden="true" />
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 relative">
-          <FadeSection>
-            <div className="text-center mb-8 sm:mb-12">
-              <p className="text-accent font-semibold mb-2">⭐ Casos reales</p>
-              <h2 id="testimonios-title" className="text-2xl sm:text-3xl lg:text-4xl font-bold text-text-dark mb-3">
-                Lo que dicen quienes ya se asesoraron
-              </h2>
-              <p className="text-text-medium max-w-xl mx-auto text-sm sm:text-base">
-                Más de 1.200 personas han confiado en nosotros para mejorar su plan de salud
-              </p>
-            </div>
-          </FadeSection>
 
-          <FadeSection delay={150}>
-            <TestimonialsCarousel />
-          </FadeSection>
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 relative">
+          <div className="grid lg:grid-cols-[380px_1fr] gap-8 lg:gap-12 items-start">
+            {/* Left: Title + Stats + CTA */}
+            <FadeSection>
+              <div className="lg:sticky lg:top-28">
+                <p className="text-accent font-semibold mb-2 text-sm">⭐ Casos reales</p>
+                <h2 id="testimonios-title" className="text-2xl sm:text-3xl lg:text-4xl font-bold text-text-dark mb-3">
+                  Lo que dicen quienes ya se asesoraron
+                </h2>
+                <p className="text-text-medium text-sm sm:text-base mb-8">
+                  Más de 1.200 personas han confiado en nosotros para mejorar su plan de salud
+                </p>
 
-          <FadeSection delay={300}>
-            <div className="mt-10 sm:mt-14 text-center">
-              <a
-                href="#formulario"
-                className="btn-primary inline-block bg-accent hover:bg-accent-dark text-white font-semibold py-3.5 sm:py-4 px-8 sm:px-10 rounded-full text-base sm:text-lg transition touch-manipulation"
-              >
-                Quiero que me asesoren gratis
-              </a>
-            </div>
-          </FadeSection>
+                {/* Stats */}
+                <div className="space-y-4 mb-8">
+                  <div className="flex items-center gap-3 bg-white rounded-xl p-3.5 shadow-[0_1px_8px_-2px_rgba(0,0,0,0.05)] border border-gray-100/60">
+                    <div className="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center flex-shrink-0">
+                      <svg className="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
+                      </svg>
+                    </div>
+                    <div>
+                      <p className="text-text-dark font-bold text-lg leading-tight">1.200+</p>
+                      <p className="text-text-light text-xs">Personas asesoradas</p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center gap-3 bg-white rounded-xl p-3.5 shadow-[0_1px_8px_-2px_rgba(0,0,0,0.05)] border border-gray-100/60">
+                    <div className="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center flex-shrink-0">
+                      <svg className="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                    </div>
+                    <div>
+                      <p className="text-text-dark font-bold text-lg leading-tight">$480.000</p>
+                      <p className="text-text-light text-xs">Ahorro promedio al año</p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center gap-3 bg-white rounded-xl p-3.5 shadow-[0_1px_8px_-2px_rgba(0,0,0,0.05)] border border-gray-100/60">
+                    <div className="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center flex-shrink-0">
+                      <svg className="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+                      </svg>
+                    </div>
+                    <div>
+                      <p className="text-text-dark font-bold text-lg leading-tight">4.8 ★</p>
+                      <p className="text-text-light text-xs">Satisfacción de clientes</p>
+                    </div>
+                  </div>
+                </div>
+
+                <a
+                  href="#formulario"
+                  className="btn-primary inline-block bg-accent hover:bg-accent-dark text-white font-semibold py-3.5 px-8 rounded-full text-base transition touch-manipulation"
+                >
+                  Quiero que me asesoren gratis
+                </a>
+              </div>
+            </FadeSection>
+
+            {/* Right: Testimonial carousel */}
+            <FadeSection delay={150}>
+              <TestimonialsCarousel />
+            </FadeSection>
+          </div>
         </div>
       </section>
 
       {/* Coberturas de Isapre */}
-      <section className="py-12 sm:py-16 bg-white" aria-labelledby="coberturas-title">
-        <div className="max-w-7xl mx-auto px-5 sm:px-6">
+      <section className="py-16 sm:py-24 bg-secondary relative overflow-hidden" aria-labelledby="coberturas-title">
+        {/* Decorative elements */}
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-accent/10 rounded-full blur-[120px]" aria-hidden="true" />
+        <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-accent/5 rounded-full blur-[100px]" aria-hidden="true" />
+        
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 relative">
           <FadeSection>
-            <div className="text-center mb-10">
-              <p className="text-accent font-semibold mb-2">🏥 Conoce tus beneficios</p>
-              <h2 id="coberturas-title" className="text-2xl sm:text-3xl font-bold text-text-dark mb-3">
+            <div className="text-center mb-10 sm:mb-14">
+              <span className="inline-flex items-center gap-2 text-accent font-semibold text-sm bg-accent/10 px-4 py-1.5 rounded-full mb-4">
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
+                Conoce tus beneficios
+              </span>
+              <h2 id="coberturas-title" className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-3">
                 ¿Qué coberturas incluye tu Isapre?
               </h2>
-              <p className="text-text-medium max-w-2xl mx-auto">
+              <p className="text-white/60 max-w-2xl mx-auto text-sm sm:text-base">
                 Conoce las principales coberturas que puedes obtener con un buen plan
               </p>
             </div>
