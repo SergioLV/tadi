@@ -51,7 +51,7 @@ section[id] {
     transform: translateX(0);
   }
   100% {
-    transform: translateX(calc(-140px * 7 - 32px * 7));
+    transform: translateX(calc(-140px * 8 - 32px * 8));
   }
 }
 
@@ -61,7 +61,7 @@ section[id] {
       transform: translateX(0);
     }
     100% {
-      transform: translateX(calc(-160px * 7 - 48px * 7));
+      transform: translateX(calc(-160px * 8 - 48px * 8));
     }
   }
 }

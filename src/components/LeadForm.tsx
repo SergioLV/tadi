@@ -62,6 +62,15 @@ export default function LeadForm() {
       await response.json();
       setSubmitted(true);
       setShowPopup(true);
+
+      // Google Ads conversion tracking
+      if (typeof window !== 'undefined' && typeof (window as any).gtag === 'function') {
+        (window as any).gtag('event', 'conversion', {
+          send_to: 'AW-17962685155/GKwsCK7z2vwbEOOlo_VC',
+          value: 1.0,
+          currency: 'CLP',
+        });
+      }
     } catch (error) {
       console.error('Error submitting lead:', error);
       setSubmitError('Hubo un problema al enviar tu solicitud. Por favor intenta nuevamente.');
